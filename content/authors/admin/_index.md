@@ -1,6 +1,6 @@
 ---
 title: Robert Rand
-role: Professor of Artificial Intelligence
+role: Assistant Professor of Computer Science
 avatar_filename: img_20191104_191145.jpg
 bio: Developing Programming Languages and Verification Tools for Quantum Computing
 interests:
