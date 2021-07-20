@@ -8,7 +8,7 @@ weight: 20
 title: Biography
 design:
   background:
-    image: img_20191104_191145.jpg
+    image: ""
 ---
 I am an Assistant Professor of Computer Science, part of the [Programming Languages Research Group](http://pl.cs.uchicago.edu/) and the [Chicago Quantum Exchange](https://quantum.uchicago.edu/).
 
