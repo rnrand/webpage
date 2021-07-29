@@ -1,0 +1,10 @@
+/*   Styles for VQC  */
+
+/*   Background   */
+body { background-image: url('../media/image/Double_slit_simulated_2.jpg'); }
+
+#header { background-color: rgba(102, 102, 102, 0.53); }
+
+/*   This volume's color   */
+.section, ul#menu li.section_name, div.button, td.logical_tab, .ui-state-active  { background-color: #a6a6a6; }
+

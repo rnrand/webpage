@@ -44,7 +44,7 @@ abstract: We introduce a Hoare-style logic for probabilistic programs, called VP
   (deterministic) program termination. The underlying simple probabilistic imperative
   language, PrImp, includes a probabilistic toss operator, probabilistic guards and
   potentially-non-terminating while loops.
-publication: '*Mathematical Foundations of Programming Semantics (MFPS)*'
+publication: '*Mathematical Foundations of Programming Semantics (MFPS 2015)*'
 doi: https://doi.org/10.1016/j.entcs.2015.12.021
 url_pdf: files/mfps_2015_expanded.pdf
 url_slides: files/mfps_2015_slides.pdf

@@ -1,0 +1,15 @@
+DIGEST ebbf8a2629e19b88b6db56b71bfc6b96
+FVQC.SQIMPTest
+R70:75 Coq.Strings.String <> <> lib
+R102:106 VQC.SQIMP <> <> lib
+ax 120:126 <> MISSING
+mod 143:147 <> Check
+R213:219 VQC.SQIMPTest <> MISSING defax
+R213:219 VQC.SQIMPTest <> MISSING defax
+R412:415 Coq.Init.Datatypes <> Some constr
+R412:415 Coq.Init.Datatypes <> Some constr
+R595:598 Coq.Init.Datatypes <> None constr
+R595:598 Coq.Init.Datatypes <> None constr
+R680:684 VQC.SQIMPTest Check <> mod
+R712:716 VQC.SQIMP <> <> lib
+R739:742 Coq.Init.Logic <> True ind

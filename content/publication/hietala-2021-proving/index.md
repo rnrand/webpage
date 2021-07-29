@@ -12,7 +12,7 @@ authors:
 - Michael Hicks
 tags: []
 categories: []
-date: '2021-01-01'
+date: '2021-06-01'
 lastmod: 2021-07-26T16:34:21-05:00
 featured: false
 draft: false
@@ -33,9 +33,9 @@ image:
 projects: []
 publishDate: '2021-07-26T21:34:21.735292Z'
 publication_types:
-- '2'
+- '1'
 abstract: ''
-publication: '*12th International Conference on Interactive Theorem Proving (ITP 2021)*'
+publication: '*International Conference on Interactive Theorem Proving (ITP 2021)*'
 url_pdf: files/itp_2021.pdf
 doi: 10.4230/LIPIcs.ITP.2021.21
 

@@ -33,7 +33,7 @@ publishDate: '2021-07-26T21:34:21.160860Z'
 publication_types:
 - '6'
 abstract: ''
-publication: '*The First International Workshop on Programming Languages for Quantum
+publication: '*International Workshop on Programming Languages for Quantum
   Computing (PLanQC 2020)*'
 url_pdf: files/planqc_2020a.pdf
 url_slides: files/planqc_2020a_slides.pdf

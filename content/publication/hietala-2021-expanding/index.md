@@ -14,7 +14,7 @@ authors:
 - Michael Hicks
 tags: []
 categories: []
-date: '2021-01-01'
+date: '2021-06-22'
 lastmod: 2021-07-26T16:34:22-05:00
 featured: false
 draft: false
@@ -35,11 +35,17 @@ image:
 projects: []
 publishDate: '2021-07-26T21:34:22.442939Z'
 publication_types:
-- '1'
+- '6'
 abstract: ''
-publication: '*The Second International Workshop on Programming Languages for Quantum
+publication: '*International Workshop on Programming Languages for Quantum
   Computing (PLanQC 2021)*'
 url_pdf: planqc_2021c.pdf
 url_slides: planqc_2021c_slides.pdf
-url_video: https://www.pldi21.org/prerecorded_planqc.2.html
+url_video: https://youtu.be/fkDq2HQRILU
+<!-- url_video: https://www.pldi21.org/prerecorded_planqc.2.html -->
 ---
+
+<p>
+{{< youtube fkDq2HQRILU >}}
+</p>
+

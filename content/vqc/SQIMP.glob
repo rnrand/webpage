@@ -1,0 +1,375 @@
+DIGEST 49f81002eebfe9fcbefbcd577a5573fb
+FVQC.SQIMP
+R60:63 Coq.Lists.List <> <> lib
+R103:106 Coq.Bool.Bool <> <> lib
+R124:129 Coq.Setoids.Setoid <> <> lib
+R147:151 Coq.Reals.Reals <> <> lib
+R169:173 Coq.micromega.Psatz <> <> lib
+R200:205 VQC.Matrix <> <> lib
+R232:236 VQC.Qubit <> <> lib
+R263:272 VQC.Multiqubit <> <> lib
+ind 481:484 <> Gate
+constr 505:507 <> G_H
+constr 525:527 <> G_X
+constr 544:546 <> G_Z
+constr 563:568 <> G_CNOT
+R491:494 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R488:490 Coq.Init.Datatypes <> nat ind
+R515:518 VQC.SQIMP <> Gate ind
+R535:538 VQC.SQIMP <> Gate ind
+R554:557 VQC.SQIMP <> Gate ind
+R573:576 VQC.SQIMP <> Gate ind
+ind 730:732 <> com
+constr 745:748 <> skip
+constr 758:760 <> seq
+constr 785:787 <> app
+R752:754 VQC.SQIMP <> com ind
+R768:771 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R775:778 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R779:781 VQC.SQIMP <> com ind
+R772:774 VQC.SQIMP <> com ind
+R765:767 VQC.SQIMP <> com ind
+R810:813 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R822:825 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R826:828 VQC.SQIMP <> com ind
+R814:817 Coq.Init.Datatypes <> list ind
+R819:821 Coq.Init.Datatypes <> nat ind
+R804:807 VQC.SQIMP <> Gate ind
+R809:809 VQC.SQIMP <> n var
+def 843:846 <> SKIP
+R851:854 VQC.SQIMP <> skip constr
+def 868:869 <> H'
+R876:878 VQC.SQIMP <> app constr
+R884:884 Coq.Lists.List ListNotations :list_scope:'['_x_']' not
+R886:886 Coq.Lists.List ListNotations :list_scope:'['_x_']' not
+R885:885 VQC.SQIMP <> q var
+R880:882 VQC.SQIMP <> G_H constr
+def 900:901 <> X'
+R908:910 VQC.SQIMP <> app constr
+R916:916 Coq.Lists.List ListNotations :list_scope:'['_x_']' not
+R918:918 Coq.Lists.List ListNotations :list_scope:'['_x_']' not
+R917:917 VQC.SQIMP <> q var
+R912:914 VQC.SQIMP <> G_X constr
+def 932:933 <> Z'
+R940:942 VQC.SQIMP <> app constr
+R948:948 Coq.Lists.List ListNotations :list_scope:'['_x_']' not
+R950:950 Coq.Lists.List ListNotations :list_scope:'['_x_']' not
+R949:949 VQC.SQIMP <> q var
+R944:946 VQC.SQIMP <> G_Z constr
+def 964:968 <> CNOT'
+R979:981 VQC.SQIMP <> app constr
+R990:990 Coq.Lists.List ListNotations :list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R993:994 Coq.Lists.List ListNotations :list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R997:997 Coq.Lists.List ListNotations :list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R991:992 VQC.SQIMP <> q1 var
+R995:996 VQC.SQIMP <> q2 var
+R983:988 VQC.SQIMP <> G_CNOT constr
+R1025:1027 VQC.SQIMP <> seq constr
+not 1011:1011 <> :com_scope:x_';'_x
+R1074:1075 VQC.SQIMP <> H' def
+R1074:1075 VQC.SQIMP <> H' def
+R1094:1095 VQC.SQIMP <> X' def
+R1094:1095 VQC.SQIMP <> X' def
+R1114:1115 VQC.SQIMP <> Z' def
+R1114:1115 VQC.SQIMP <> Z' def
+R1134:1138 VQC.SQIMP <> CNOT' def
+R1134:1138 VQC.SQIMP <> CNOT' def
+def 1240:1247 <> bell_com
+R1256:1257 VQC.SQIMP <> :com_scope:x_';'_x not
+R1252:1253 VQC.SQIMP <> H' def
+R1258:1262 VQC.SQIMP <> CNOT' def
+def 1362:1364 <> pad
+R1378:1380 Coq.Init.Datatypes <> nat ind
+R1388:1394 VQC.Qubit <> Unitary syndef
+R1398:1398 Coq.Arith.PeanoNat <> :nat_scope:x_'^'_x not
+R1399:1399 VQC.SQIMP <> n var
+R1398:1398 Coq.Arith.PeanoNat <> :nat_scope:x_'^'_x not
+R1399:1399 VQC.SQIMP <> n var
+R1405:1411 VQC.Qubit <> Unitary syndef
+R1415:1415 Coq.Arith.PeanoNat <> :nat_scope:x_'^'_x not
+R1416:1418 VQC.SQIMP <> dim var
+R1415:1415 Coq.Arith.PeanoNat <> :nat_scope:x_'^'_x not
+R1416:1418 VQC.SQIMP <> dim var
+R1436:1440 Coq.Arith.PeanoNat <> :nat_scope:x_'<=?'_x not
+R1432:1434 Coq.Init.Peano <> :nat_scope:x_'+'_x not
+R1430:1431 VQC.SQIMP <> to var
+R1435:1435 VQC.SQIMP <> n var
+R1441:1443 VQC.SQIMP <> dim var
+R1500:1503 VQC.Matrix <> Zero def
+R1515:1515 Coq.Arith.PeanoNat <> :nat_scope:x_'^'_x not
+R1516:1518 VQC.SQIMP <> dim var
+R1507:1507 Coq.Arith.PeanoNat <> :nat_scope:x_'^'_x not
+R1508:1510 VQC.SQIMP <> dim var
+R1469:1473 VQC.Matrix <> :matrix_scope:x_'⊗'_x not
+R1463:1467 VQC.Matrix <> :matrix_scope:x_'⊗'_x not
+R1455:1455 VQC.Matrix <> I def
+R1459:1459 Coq.Arith.PeanoNat <> :nat_scope:x_'^'_x not
+R1460:1461 VQC.SQIMP <> to var
+R1468:1468 VQC.SQIMP <> U var
+R1474:1474 VQC.Matrix <> I def
+R1478:1479 Coq.Arith.PeanoNat <> :nat_scope:x_'^'_x not
+R1492:1492 Coq.Arith.PeanoNat <> :nat_scope:x_'^'_x not
+R1487:1489 Coq.Init.Peano <> :nat_scope:x_'-'_x not
+R1483:1485 Coq.Init.Peano <> :nat_scope:x_'-'_x not
+R1480:1482 VQC.SQIMP <> dim var
+R1486:1486 VQC.SQIMP <> n var
+R1490:1491 VQC.SQIMP <> to var
+def 1534:1537 <> NOTC
+R1541:1547 VQC.Qubit <> Unitary syndef
+R1568:1568 Coq.Init.Datatypes <> :bool_scope:x_'||'_x not
+R1579:1584 Coq.Init.Datatypes <> :bool_scope:x_'||'_x not
+R1595:1595 Coq.Init.Datatypes <> :bool_scope:x_'||'_x not
+R1574:1577 VQC.Matrix <> :matrix_scope:x_'=?'_x not
+R1570:1572 Coq.Init.Peano <> :nat_scope:x_'+'_x not
+R1569:1569 VQC.SQIMP <> i var
+R1573:1573 VQC.SQIMP <> j var
+R1590:1593 VQC.Matrix <> :matrix_scope:x_'=?'_x not
+R1586:1588 Coq.Init.Peano <> :nat_scope:x_'+'_x not
+R1585:1585 VQC.SQIMP <> i var
+R1589:1589 VQC.SQIMP <> j var
+def 1624:1632 <> eval_cnot
+R1644:1646 Coq.Init.Datatypes <> nat ind
+R1651:1657 VQC.Qubit <> Unitary syndef
+R1661:1661 Coq.Arith.PeanoNat <> :nat_scope:x_'^'_x not
+R1662:1664 VQC.SQIMP <> dim var
+R1661:1661 Coq.Arith.PeanoNat <> :nat_scope:x_'^'_x not
+R1662:1664 VQC.SQIMP <> dim var
+R1681:1684 VQC.Matrix <> :matrix_scope:x_'=?'_x not
+R1677:1679 Coq.Init.Peano <> :nat_scope:x_'+'_x not
+R1676:1676 VQC.SQIMP <> m var
+R1685:1685 VQC.SQIMP <> n var
+R1730:1733 VQC.Matrix <> :matrix_scope:x_'=?'_x not
+R1726:1728 Coq.Init.Peano <> :nat_scope:x_'+'_x not
+R1725:1725 VQC.SQIMP <> n var
+R1734:1734 VQC.SQIMP <> m var
+R1774:1777 VQC.Matrix <> Zero def
+R1746:1748 VQC.SQIMP <> pad def
+R1758:1761 VQC.SQIMP <> NOTC def
+R1754:1756 VQC.SQIMP <> dim var
+R1752:1752 VQC.SQIMP <> n var
+R1697:1699 VQC.SQIMP <> pad def
+R1709:1712 VQC.Multiqubit <> CNOT def
+R1705:1707 VQC.SQIMP <> dim var
+R1703:1703 VQC.SQIMP <> m var
+def 1796:1801 <> g_eval
+R1814:1816 Coq.Init.Datatypes <> nat ind
+R1824:1827 VQC.SQIMP <> Gate ind
+R1829:1829 VQC.SQIMP <> n var
+R1837:1840 Coq.Init.Datatypes <> list ind
+R1842:1844 Coq.Init.Datatypes <> nat ind
+R1849:1855 VQC.Qubit <> Unitary syndef
+R1859:1859 Coq.Arith.PeanoNat <> :nat_scope:x_'^'_x not
+R1860:1862 VQC.SQIMP <> dim var
+R1859:1859 Coq.Arith.PeanoNat <> :nat_scope:x_'^'_x not
+R1860:1862 VQC.SQIMP <> dim var
+R1879:1879 VQC.SQIMP <> l var
+R1876:1876 VQC.SQIMP <> g var
+R1890:1892 VQC.SQIMP <> G_H constr
+R1895:1895 Coq.Lists.List ListNotations :list_scope:'['_x_']' not
+R1897:1897 Coq.Lists.List ListNotations :list_scope:'['_x_']' not
+R1904:1906 VQC.SQIMP <> pad def
+R1916:1916 VQC.Qubit <> H def
+R1912:1914 VQC.SQIMP <> dim var
+R1908:1908 VQC.SQIMP <> n var
+R1922:1924 VQC.SQIMP <> G_X constr
+R1927:1927 Coq.Lists.List ListNotations :list_scope:'['_x_']' not
+R1929:1929 Coq.Lists.List ListNotations :list_scope:'['_x_']' not
+R1936:1938 VQC.SQIMP <> pad def
+R1948:1948 VQC.Qubit <> X def
+R1944:1946 VQC.SQIMP <> dim var
+R1940:1940 VQC.SQIMP <> n var
+R1954:1956 VQC.SQIMP <> G_Z constr
+R1959:1959 Coq.Lists.List ListNotations :list_scope:'['_x_']' not
+R1961:1961 Coq.Lists.List ListNotations :list_scope:'['_x_']' not
+R1968:1970 VQC.SQIMP <> pad def
+R1980:1980 VQC.Qubit <> Z def
+R1976:1978 VQC.SQIMP <> dim var
+R1972:1972 VQC.SQIMP <> n var
+R1986:1991 VQC.SQIMP <> G_CNOT constr
+R1995:1996 Coq.Init.Datatypes <> :list_scope:x_'::'_x not
+R1997:1997 Coq.Lists.List ListNotations :list_scope:'['_x_']' not
+R1999:1999 Coq.Lists.List ListNotations :list_scope:'['_x_']' not
+R2004:2012 VQC.SQIMP <> eval_cnot def
+R2014:2016 VQC.SQIMP <> dim var
+R2038:2041 VQC.Matrix <> Zero def
+def 2064:2067 <> eval
+R2076:2078 Coq.Init.Datatypes <> nat ind
+R2086:2088 VQC.SQIMP <> com ind
+R2093:2099 VQC.Qubit <> Unitary syndef
+R2103:2103 Coq.Arith.PeanoNat <> :nat_scope:x_'^'_x not
+R2104:2106 VQC.SQIMP <> dim var
+R2103:2103 Coq.Arith.PeanoNat <> :nat_scope:x_'^'_x not
+R2104:2106 VQC.SQIMP <> dim var
+R2120:2120 VQC.SQIMP <> c var
+R2131:2134 VQC.SQIMP <> skip constr
+R2142:2142 VQC.Matrix <> I def
+R2146:2146 Coq.Arith.PeanoNat <> :nat_scope:x_'^'_x not
+R2147:2149 VQC.SQIMP <> dim var
+R2156:2158 VQC.SQIMP <> app constr
+R2167:2172 VQC.SQIMP <> g_eval def
+R2174:2176 VQC.SQIMP <> dim var
+R2188:2190 VQC.SQIMP <> :com_scope:x_';'_x not
+R2209:2212 VQC.Matrix <> :matrix_scope:x_'×'_x not
+R2198:2201 VQC.SQIMP <> eval def
+R2203:2205 VQC.SQIMP <> dim var
+R2213:2216 VQC.SQIMP <> eval def
+R2218:2220 VQC.SQIMP <> dim var
+R2244:2252 VQC.SQIMP <> eval_cnot def
+R2267:2272 VQC.SQIMP <> g_eval def
+R2287:2289 VQC.SQIMP <> pad def
+prf 2301:2309 <> eval_bell
+R2343:2346 VQC.Matrix <> ::x_'=='_x not
+R2313:2313 VQC.Matrix <> :matrix_scope:x_'×'_x not
+R2329:2333 VQC.Matrix <> :matrix_scope:x_'×'_x not
+R2314:2317 VQC.SQIMP <> eval def
+R2321:2328 VQC.SQIMP <> bell_com def
+R2334:2336 VQC.Multiqubit <> ::'∣'_x_','_x_','_'..'_','_x_'⟩' not
+R2338:2338 VQC.Multiqubit <> ::'∣'_x_','_x_','_'..'_','_x_'⟩' not
+R2340:2342 VQC.Multiqubit <> ::'∣'_x_','_x_','_'..'_','_x_'⟩' not
+R2347:2350 VQC.Multiqubit <> bell def
+def 2520:2528 <> com_equiv
+R2539:2541 VQC.SQIMP <> com ind
+R2570:2573 VQC.Matrix <> ::x_'=='_x not
+R2559:2562 VQC.SQIMP <> eval def
+R2568:2569 VQC.SQIMP <> c1 var
+R2564:2566 VQC.SQIMP <> dim var
+R2574:2577 VQC.SQIMP <> eval def
+R2583:2584 VQC.SQIMP <> c2 var
+R2579:2581 VQC.SQIMP <> dim var
+R2603:2611 VQC.SQIMP <> com_equiv def
+not 2594:2594 <> :com_scope:x_'≡'_x
+prf 2646:2659 <> com_equiv_refl
+R2676:2680 VQC.SQIMP <> :com_scope:x_'≡'_x not
+R2674:2675 VQC.SQIMP <> c1 var
+R2681:2682 VQC.SQIMP <> c1 var
+prf 2711:2723 <> com_equiv_sym
+R2750:2753 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R2756:2760 VQC.SQIMP <> :com_scope:x_'≡'_x not
+R2754:2755 VQC.SQIMP <> c2 var
+R2761:2762 VQC.SQIMP <> c1 var
+R2743:2747 VQC.SQIMP <> :com_scope:x_'≡'_x not
+R2741:2742 VQC.SQIMP <> c1 var
+R2748:2749 VQC.SQIMP <> c2 var
+prf 2791:2805 <> com_equiv_trans
+R2835:2838 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R2848:2851 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R2854:2858 VQC.SQIMP <> :com_scope:x_'≡'_x not
+R2852:2853 VQC.SQIMP <> c1 var
+R2859:2860 VQC.SQIMP <> c3 var
+R2841:2845 VQC.SQIMP <> :com_scope:x_'≡'_x not
+R2839:2840 VQC.SQIMP <> c2 var
+R2846:2847 VQC.SQIMP <> c3 var
+R2828:2832 VQC.SQIMP <> :com_scope:x_'≡'_x not
+R2826:2827 VQC.SQIMP <> c1 var
+R2833:2834 VQC.SQIMP <> c2 var
+R2913:2921 VQC.SQIMP <> com_equiv def
+prf 2966:2974 <> seq_assoc
+R2995:2995 VQC.SQIMP <> :com_scope:x_'≡'_x not
+R3010:3016 VQC.SQIMP <> :com_scope:x_'≡'_x not
+R3031:3031 VQC.SQIMP <> :com_scope:x_'≡'_x not
+R2996:2996 VQC.SQIMP <> :com_scope:x_';'_x not
+R3004:3007 VQC.SQIMP <> :com_scope:x_';'_x not
+R2999:3001 VQC.SQIMP <> :com_scope:x_';'_x not
+R2997:2998 VQC.SQIMP <> c1 var
+R3002:3003 VQC.SQIMP <> c2 var
+R3008:3009 VQC.SQIMP <> c3 var
+R3019:3022 VQC.SQIMP <> :com_scope:x_';'_x not
+R3030:3030 VQC.SQIMP <> :com_scope:x_';'_x not
+R3017:3018 VQC.SQIMP <> c1 var
+R3025:3027 VQC.SQIMP <> :com_scope:x_';'_x not
+R3023:3024 VQC.SQIMP <> c2 var
+R3028:3029 VQC.SQIMP <> c3 var
+R3081:3091 VQC.Matrix <> Mmult_assoc thm
+R3081:3091 VQC.Matrix <> Mmult_assoc thm
+R3081:3091 VQC.Matrix <> Mmult_assoc thm
+prf 3112:3125 <> seq_congruence
+R3165:3172 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R3183:3190 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R3198:3202 VQC.SQIMP <> :com_scope:x_'≡'_x not
+R3193:3195 VQC.SQIMP <> :com_scope:x_';'_x not
+R3191:3192 VQC.SQIMP <> c1 var
+R3196:3197 VQC.SQIMP <> c2 var
+R3206:3208 VQC.SQIMP <> :com_scope:x_';'_x not
+R3203:3205 VQC.SQIMP <> c1' var
+R3209:3211 VQC.SQIMP <> c2' var
+R3175:3179 VQC.SQIMP <> :com_scope:x_'≡'_x not
+R3173:3174 VQC.SQIMP <> c2 var
+R3180:3182 VQC.SQIMP <> c2' var
+R3157:3161 VQC.SQIMP <> :com_scope:x_'≡'_x not
+R3155:3156 VQC.SQIMP <> c1 var
+R3162:3164 VQC.SQIMP <> c1' var
+R3275:3283 VQC.SQIMP <> com_equiv def
+R3349:3357 VQC.SQIMP <> com_equiv def
+R3345:3347 VQC.SQIMP <> com ind
+R3349:3357 VQC.SQIMP <> com_equiv def
+R3345:3347 VQC.SQIMP <> com ind
+R3384:3397 VQC.SQIMP <> com_equiv_refl thm
+R3349:3357 VQC.SQIMP <> com_equiv def
+R3345:3347 VQC.SQIMP <> com ind
+R3420:3432 VQC.SQIMP <> com_equiv_sym thm
+R3349:3357 VQC.SQIMP <> com_equiv def
+R3345:3347 VQC.SQIMP <> com ind
+R3459:3473 VQC.SQIMP <> com_equiv_trans thm
+R3349:3357 VQC.SQIMP <> com_equiv def
+R3345:3347 VQC.SQIMP <> com ind
+R3384:3397 VQC.SQIMP <> com_equiv_refl thm
+R3420:3432 VQC.SQIMP <> com_equiv_sym thm
+R3459:3473 VQC.SQIMP <> com_equiv_trans thm
+R3509:3511 VQC.SQIMP <> seq constr
+R3531:3531 Coq.Classes.Morphisms ProperNotations :signature_scope:x_'==>'_x not
+R3542:3547 Coq.Classes.Morphisms ProperNotations :signature_scope:x_'==>'_x not
+R3533:3541 VQC.SQIMP <> com_equiv def
+R3548:3548 Coq.Classes.Morphisms ProperNotations :signature_scope:x_'==>'_x not
+R3559:3565 Coq.Classes.Morphisms ProperNotations :signature_scope:x_'==>'_x not
+R3576:3576 Coq.Classes.Morphisms ProperNotations :signature_scope:x_'==>'_x not
+R3550:3558 VQC.SQIMP <> com_equiv def
+R3567:3575 VQC.SQIMP <> com_equiv def
+R3626:3639 VQC.SQIMP <> seq_congruence thm
+R3626:3639 VQC.SQIMP <> seq_congruence thm
+def 3695:3700 <> encode
+R3711:3714 Coq.Init.Datatypes <> bool ind
+R3718:3720 VQC.SQIMP <> com ind
+R3727:3727 VQC.SQIMP <> :com_scope:x_';'_x not
+R3753:3758 VQC.SQIMP <> :com_scope:x_';'_x not
+R3784:3784 VQC.SQIMP <> :com_scope:x_';'_x not
+R3731:3732 VQC.SQIMP <> b2 var
+R3749:3752 VQC.SQIMP <> SKIP def
+R3739:3740 VQC.SQIMP <> X' def
+R3762:3763 VQC.SQIMP <> b1 var
+R3780:3783 VQC.SQIMP <> SKIP def
+R3770:3771 VQC.SQIMP <> Z' def
+def 3799:3804 <> decode
+R3808:3810 VQC.SQIMP <> com ind
+R3826:3829 VQC.SQIMP <> :com_scope:x_';'_x not
+R3817:3821 VQC.SQIMP <> CNOT' def
+R3830:3831 VQC.SQIMP <> H' def
+def 3848:3857 <> superdense
+R3868:3871 Coq.Init.Datatypes <> bool ind
+R3900:3901 VQC.SQIMP <> :com_scope:x_';'_x not
+R3885:3887 VQC.SQIMP <> :com_scope:x_';'_x not
+R3877:3884 VQC.SQIMP <> bell_com def
+R3888:3893 VQC.SQIMP <> encode def
+R3898:3899 VQC.SQIMP <> b2 var
+R3895:3896 VQC.SQIMP <> b1 var
+R3902:3907 VQC.SQIMP <> decode def
+def 3924:3927 <> BtoN
+R3934:3937 Coq.Init.Datatypes <> bool ind
+R3942:3944 Coq.Init.Datatypes <> nat ind
+R3952:3952 VQC.SQIMP <> b var
+R3969:3996 VQC.SQIMP <> BtoN def
+prf 4006:4023 <> superdense_correct
+R4083:4086 VQC.Matrix <> ::x_'=='_x not
+R4041:4041 VQC.Matrix <> :matrix_scope:x_'×'_x not
+R4067:4071 VQC.Matrix <> :matrix_scope:x_'×'_x not
+R4042:4045 VQC.SQIMP <> eval def
+R4050:4059 VQC.SQIMP <> superdense def
+R4064:4065 VQC.SQIMP <> b2 var
+R4061:4062 VQC.SQIMP <> b1 var
+R4072:4075 VQC.Multiqubit <> ::'∣'_x_','_x_','_'..'_','_x_'⟩' not
+R4077:4077 VQC.Multiqubit <> ::'∣'_x_','_x_','_'..'_','_x_'⟩' not
+R4079:4082 VQC.Multiqubit <> ::'∣'_x_','_x_','_'..'_','_x_'⟩' not
+R4087:4090 VQC.Multiqubit <> ::'∣'_x_','_x_','_'..'_','_x_'⟩' not
+R4093:4093 VQC.Multiqubit <> ::'∣'_x_','_x_','_'..'_','_x_'⟩' not
+R4096:4099 VQC.Multiqubit <> ::'∣'_x_','_x_','_'..'_','_x_'⟩' not
+R4091:4092 VQC.SQIMP <> b1 var
+R4094:4095 VQC.SQIMP <> b2 var

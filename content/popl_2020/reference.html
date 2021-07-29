@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>VQC Tactics Reference</title>
+    <style>
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; } sup { top: -0.5em; } sub { bottom: -0.25em; } 
+    </style>
+  </head>
+
+
+<h2> Coq Tactics </h2>
+
+<h3> Automation Tactics </h3>
+
+<table border="1" width="60%">
+  <col width="20%">
+  <col width="80%">
+  <tr>
+    <th>Tactic</th>
+    <th>Description</th> 
+  </tr>
+  <tr>
+    <th>Integers, Nats</th>
+    <th></th> 
+  </tr>
+  <tr>
+    <td>lia</td>
+    <td>Solve the goal using Coq's Linear Integer Arithmetic procedure</td> 
+  </tr>
+  <tr>
+    <th>Reals</th>
+    <th></th> 
+  </tr>
+  <tr>
+    <td>R_field_simplify</td>
+    <td>Simplify the goal using field axioms</td> 
+  </tr>
+  <tr>
+    <td>R_field</td>
+    <td>Solve the goal using field axioms</td> 
+  </tr>
+  <tr>
+    <td>lra</td>
+    <td>Solve the goal using Coq's Linear Real Arithmetic procedure</td> 
+  </tr>
+    <th>Complex</th>
+    <th></th> 
+  </tr>
+  <tr>
+    <td>C_field_simplify</td>
+    <td>Simplify the goal using field axioms</td> 
+  </tr>
+  <tr>
+    <td>C_field</td>
+    <td>Solve the goal using field axioms</td> 
+  </tr>
+  <tr>
+    <td>lca</td>
+    <td>Solve the goal using Coq's Linear Real Arithmetic procedure (indirectly)</td> 
+  </tr>
+    <th>Matrix</th>
+    <th></th> 
+  </tr>
+  <tr>
+    <td>Msimpl</td>
+    <td>Simplify the goal using standard matrix equalities</td> 
+  </tr>
+  <tr>
+    <td>by_cell</td>
+    <td>Reduce m &times; n matrix equality to m&lowast;n complex number equalities</td> 
+  </tr>
+  <tr>
+    <td>lma</td>
+    <td>Solve the goal using Coq's Linear Real Arithmetic procedure (indirectly)</td> 
+  </tr>
+    <th>Quantum Matrices</th>
+    <th></th> 
+  </tr>
+  <tr>
+    <td>qubit_simplify</td>
+    <td>Simplify quantum expressions in Dirac notation</td> 
+  </tr>
+</table>
+
+
+<h3> Databases </h3>
+
+<table border="1" width="60%">
+  <col width="20%">
+  <col width="10%">
+  <col width="70%">
+  <tr>
+    <th>Call With</th>
+    <th>Database</th>
+    <th>Description</th> 
+  </tr>
+  <tr>
+    <td>autounfold with</td>
+    <td>U_db</td> 
+    <td>Unfolds matrix and quantum expressions</td>
+  </tr>
+  <tr>
+    <td>autorewrite with</td>
+    <td>ket_db</td> 
+    <td>Rewrites Dirac notation equations</td>
+  </tr>
+</table>
+  
+
+</html>

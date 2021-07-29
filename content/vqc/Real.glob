@@ -1,0 +1,621 @@
+DIGEST 29a64755d6d4d14f22a34a0439a25eae
+FVQC.Real
+ax 605:605 <> R
+ax 755:756 <> R0
+R760:760 VQC.Real <> R defax
+ax 773:774 <> R1
+R778:778 VQC.Real <> R defax
+ax 853:857 <> Rplus
+R862:865 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R867:870 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R871:871 VQC.Real <> R defax
+R866:866 VQC.Real <> R defax
+R861:861 VQC.Real <> R defax
+ax 884:888 <> Rmult
+R893:896 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R898:901 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R902:902 VQC.Real <> R defax
+R897:897 VQC.Real <> R defax
+R892:892 VQC.Real <> R defax
+ax 915:918 <> Ropp
+R923:926 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R927:927 VQC.Real <> R defax
+R922:922 VQC.Real <> R defax
+ax 940:943 <> Rinv
+R948:951 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R952:952 VQC.Real <> R defax
+R947:947 VQC.Real <> R defax
+R969:973 VQC.Real <> Rplus defax
+not 962:962 <> :R_scope:x_'+'_x
+R999:1003 VQC.Real <> Rmult defax
+not 992:992 <> :R_scope:x_'*'_x
+R1035:1038 VQC.Real <> Ropp defax
+not 1025:1025 <> :R_scope:'-'_x
+R1073:1076 VQC.Real <> Rinv defax
+not 1063:1063 <> :R_scope:'/'_x
+def 1175:1180 <> Rminus
+R1189:1189 VQC.Real <> R defax
+R1194:1194 VQC.Real <> R defax
+R1201:1203 VQC.Real <> :R_scope:x_'+'_x not
+R1199:1200 VQC.Real <> r1 var
+R1204:1205 VQC.Real <> :R_scope:'-'_x not
+R1206:1207 VQC.Real <> r2 var
+def 1221:1224 <> Rdiv
+R1233:1233 VQC.Real <> R defax
+R1238:1238 VQC.Real <> R defax
+R1245:1247 VQC.Real <> :R_scope:x_'*'_x not
+R1243:1244 VQC.Real <> r1 var
+R1248:1249 VQC.Real <> :R_scope:'/'_x not
+R1250:1251 VQC.Real <> r2 var
+R1268:1273 VQC.Real <> Rminus def
+not 1261:1261 <> :R_scope:x_'-'_x
+R1299:1302 VQC.Real <> Rdiv def
+not 1292:1292 <> :R_scope:x_'/'_x
+def 1455:1457 <> INR
+R1464:1466 Coq.Init.Datatypes <> nat ind
+R1471:1471 VQC.Real <> R defax
+R1484:1484 VQC.Real <> n var
+R1495:1495 Coq.Init.Datatypes <> O constr
+R1503:1504 VQC.Real <> R0 defax
+R1518:1519 VQC.Real <> R1 defax
+R1537:1537 Coq.Init.Datatypes <> S constr
+R1547:1549 VQC.Real <> :R_scope:x_'+'_x not
+R1545:1546 VQC.Real <> R1 defax
+R1550:1552 VQC.Real <> INR def
+R1861:1863 VQC.Real <> :R_scope:x_'+'_x not
+R1869:1892 VQC.Real <> INR def
+R1904:1906 VQC.Real <> :R_scope:x_'+'_x not
+R1920:1922 VQC.Real <> :R_scope:x_'+'_x not
+ax 2115:2123 <> R1_neq_R0
+R2132:2135 Coq.Init.Logic <> :type_scope:x_'<>'_x not
+R2127:2129 VQC.Real <> INR def
+R2136:2138 VQC.Real <> INR def
+ax 2167:2176 <> Rplus_comm
+R2195:2195 VQC.Real <> R defax
+R2205:2207 Coq.Init.Logic <> :type_scope:x_'='_x not
+R2200:2202 VQC.Real <> :R_scope:x_'+'_x not
+R2198:2199 VQC.Real <> r1 var
+R2203:2204 VQC.Real <> r2 var
+R2210:2212 VQC.Real <> :R_scope:x_'+'_x not
+R2208:2209 VQC.Real <> r2 var
+R2213:2214 VQC.Real <> r1 var
+ax 2224:2234 <> Rplus_assoc
+R2256:2256 VQC.Real <> R defax
+R2271:2273 Coq.Init.Logic <> :type_scope:x_'='_x not
+R2266:2268 VQC.Real <> :R_scope:x_'+'_x not
+R2261:2263 VQC.Real <> :R_scope:x_'+'_x not
+R2259:2260 VQC.Real <> r1 var
+R2264:2265 VQC.Real <> r2 var
+R2269:2270 VQC.Real <> r3 var
+R2276:2279 VQC.Real <> :R_scope:x_'+'_x not
+R2287:2287 VQC.Real <> :R_scope:x_'+'_x not
+R2274:2275 VQC.Real <> r1 var
+R2282:2284 VQC.Real <> :R_scope:x_'+'_x not
+R2280:2281 VQC.Real <> r2 var
+R2285:2286 VQC.Real <> r3 var
+ax 2297:2307 <> Rplus_opp_r
+R2322:2322 VQC.Real <> R defax
+R2332:2334 Coq.Init.Logic <> :type_scope:x_'='_x not
+R2326:2328 VQC.Real <> :R_scope:x_'+'_x not
+R2325:2325 VQC.Real <> r var
+R2329:2330 VQC.Real <> :R_scope:'-'_x not
+R2331:2331 VQC.Real <> r var
+ax 2345:2353 <> Rplus_0_l
+R2368:2368 VQC.Real <> R defax
+R2376:2378 Coq.Init.Logic <> :type_scope:x_'='_x not
+R2372:2374 VQC.Real <> :R_scope:x_'+'_x not
+R2375:2375 VQC.Real <> r var
+R2379:2379 VQC.Real <> r var
+prf 2473:2481 <> Rplus_0_r
+R2496:2496 VQC.Real <> R defax
+R2504:2506 Coq.Init.Logic <> :type_scope:x_'='_x not
+R2500:2502 VQC.Real <> :R_scope:x_'+'_x not
+R2499:2499 VQC.Real <> r var
+R2507:2507 VQC.Real <> r var
+R2563:2572 VQC.Real <> Rplus_comm prfax
+R2563:2572 VQC.Real <> Rplus_comm prfax
+R2563:2572 VQC.Real <> Rplus_comm prfax
+R2583:2591 VQC.Real <> Rplus_0_l prfax
+R2583:2591 VQC.Real <> Rplus_0_l prfax
+prf 2608:2618 <> Rplus_opp_l
+R2638:2640 Coq.Init.Logic <> :type_scope:x_'='_x not
+R2634:2636 VQC.Real <> :R_scope:x_'+'_x not
+R2632:2632 VQC.Real <> :R_scope:'-'_x not
+R2633:2633 VQC.Real <> r var
+R2637:2637 VQC.Real <> r var
+R2697:2706 VQC.Real <> Rplus_comm prfax
+R2697:2706 VQC.Real <> Rplus_comm prfax
+R2697:2706 VQC.Real <> Rplus_comm prfax
+R2717:2727 VQC.Real <> Rplus_opp_r prfax
+R2717:2727 VQC.Real <> Rplus_opp_r prfax
+prf 2742:2747 <> Ropp_0
+R2753:2755 Coq.Init.Logic <> :type_scope:x_'='_x not
+R2751:2751 VQC.Real <> :R_scope:'-'_x not
+R2780:2788 VQC.Real <> Rplus_0_l prfax
+R2791:2791 VQC.Real <> :R_scope:'-'_x not
+R2780:2788 VQC.Real <> Rplus_0_l prfax
+R2791:2791 VQC.Real <> :R_scope:'-'_x not
+R2780:2788 VQC.Real <> Rplus_0_l prfax
+R2791:2791 VQC.Real <> :R_scope:'-'_x not
+R2807:2817 VQC.Real <> Rplus_opp_r prfax
+R2807:2817 VQC.Real <> Rplus_opp_r prfax
+R2807:2817 VQC.Real <> Rplus_opp_r prfax
+prf 2847:2860 <> Rplus_cancel_l
+R2898:2901 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R2904:2906 Coq.Init.Logic <> :type_scope:x_'='_x not
+R2902:2903 VQC.Real <> r2 var
+R2907:2908 VQC.Real <> r3 var
+R2888:2890 Coq.Init.Logic <> :type_scope:x_'='_x not
+R2883:2885 VQC.Real <> :R_scope:x_'+'_x not
+R2881:2882 VQC.Real <> r1 var
+R2886:2887 VQC.Real <> r2 var
+R2893:2895 VQC.Real <> :R_scope:x_'+'_x not
+R2891:2892 VQC.Real <> r1 var
+R2896:2897 VQC.Real <> r3 var
+R2952:2960 VQC.Real <> Rplus_0_l prfax
+R2952:2960 VQC.Real <> Rplus_0_l prfax
+R2952:2960 VQC.Real <> Rplus_0_l prfax
+R2977:2987 VQC.Real <> Rplus_opp_l thm
+R2977:2987 VQC.Real <> Rplus_opp_l thm
+R2977:2987 VQC.Real <> Rplus_opp_l thm
+R3004:3014 VQC.Real <> Rplus_assoc prfax
+R3004:3014 VQC.Real <> Rplus_assoc prfax
+R3004:3014 VQC.Real <> Rplus_assoc prfax
+R3046:3056 VQC.Real <> Rplus_assoc prfax
+R3046:3056 VQC.Real <> Rplus_assoc prfax
+R3046:3056 VQC.Real <> Rplus_assoc prfax
+R3069:3079 VQC.Real <> Rplus_opp_l thm
+R3069:3079 VQC.Real <> Rplus_opp_l thm
+R3069:3079 VQC.Real <> Rplus_opp_l thm
+R3092:3100 VQC.Real <> Rplus_0_l prfax
+R3092:3100 VQC.Real <> Rplus_0_l prfax
+R3092:3100 VQC.Real <> Rplus_0_l prfax
+prf 3134:3142 <> R0_unique
+R3172:3175 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R3178:3180 Coq.Init.Logic <> :type_scope:x_'='_x not
+R3176:3177 VQC.Real <> r2 var
+R3167:3169 Coq.Init.Logic <> :type_scope:x_'='_x not
+R3162:3164 VQC.Real <> :R_scope:x_'+'_x not
+R3160:3161 VQC.Real <> r1 var
+R3165:3166 VQC.Real <> r2 var
+R3170:3171 VQC.Real <> r1 var
+R3222:3230 VQC.Real <> Rplus_0_r thm
+R3222:3230 VQC.Real <> Rplus_0_r thm
+R3222:3230 VQC.Real <> Rplus_0_r thm
+R3247:3260 VQC.Real <> Rplus_cancel_l thm
+R3247:3260 VQC.Real <> Rplus_cancel_l thm
+ax 3318:3327 <> Rmult_comm
+R3344:3344 VQC.Real <> R defax
+R3354:3356 Coq.Init.Logic <> :type_scope:x_'='_x not
+R3349:3351 VQC.Real <> :R_scope:x_'*'_x not
+R3347:3348 VQC.Real <> r1 var
+R3352:3353 VQC.Real <> r2 var
+R3359:3361 VQC.Real <> :R_scope:x_'*'_x not
+R3357:3358 VQC.Real <> r2 var
+R3362:3363 VQC.Real <> r1 var
+ax 3373:3383 <> Rmult_assoc
+R3403:3403 VQC.Real <> R defax
+R3418:3420 Coq.Init.Logic <> :type_scope:x_'='_x not
+R3413:3415 VQC.Real <> :R_scope:x_'*'_x not
+R3408:3410 VQC.Real <> :R_scope:x_'*'_x not
+R3406:3407 VQC.Real <> r1 var
+R3411:3412 VQC.Real <> r2 var
+R3416:3417 VQC.Real <> r3 var
+R3423:3426 VQC.Real <> :R_scope:x_'*'_x not
+R3434:3434 VQC.Real <> :R_scope:x_'*'_x not
+R3421:3422 VQC.Real <> r1 var
+R3429:3431 VQC.Real <> :R_scope:x_'*'_x not
+R3427:3428 VQC.Real <> r2 var
+R3432:3433 VQC.Real <> r3 var
+ax 3444:3449 <> Rinv_l
+R3462:3462 VQC.Real <> R defax
+R3471:3474 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R3482:3484 Coq.Init.Logic <> :type_scope:x_'='_x not
+R3478:3480 VQC.Real <> :R_scope:x_'*'_x not
+R3475:3476 VQC.Real <> :R_scope:'/'_x not
+R3477:3477 VQC.Real <> r var
+R3481:3481 VQC.Real <> r var
+R3466:3469 Coq.Init.Logic <> :type_scope:x_'<>'_x not
+R3465:3465 VQC.Real <> r var
+ax 3495:3503 <> Rmult_1_l
+R3516:3516 VQC.Real <> R defax
+R3524:3526 Coq.Init.Logic <> :type_scope:x_'='_x not
+R3520:3522 VQC.Real <> :R_scope:x_'*'_x not
+R3523:3523 VQC.Real <> r var
+R3527:3527 VQC.Real <> r var
+ax 3537:3554 <> Rmult_plus_distr_l
+R3574:3574 VQC.Real <> R defax
+R3591:3593 Coq.Init.Logic <> :type_scope:x_'='_x not
+R3579:3582 VQC.Real <> :R_scope:x_'*'_x not
+R3590:3590 VQC.Real <> :R_scope:x_'*'_x not
+R3577:3578 VQC.Real <> r1 var
+R3585:3587 VQC.Real <> :R_scope:x_'+'_x not
+R3583:3584 VQC.Real <> r2 var
+R3588:3589 VQC.Real <> r3 var
+R3601:3603 VQC.Real <> :R_scope:x_'+'_x not
+R3596:3598 VQC.Real <> :R_scope:x_'*'_x not
+R3594:3595 VQC.Real <> r1 var
+R3599:3600 VQC.Real <> r2 var
+R3606:3608 VQC.Real <> :R_scope:x_'*'_x not
+R3604:3605 VQC.Real <> r1 var
+R3609:3610 VQC.Real <> r3 var
+prf 3620:3628 <> Rmult_0_r
+R3647:3649 Coq.Init.Logic <> :type_scope:x_'='_x not
+R3643:3645 VQC.Real <> :R_scope:x_'*'_x not
+R3642:3642 VQC.Real <> r var
+R3705:3713 VQC.Real <> R0_unique thm
+R3717:3719 VQC.Real <> :R_scope:x_'*'_x not
+R3705:3713 VQC.Real <> R0_unique thm
+R3717:3719 VQC.Real <> :R_scope:x_'*'_x not
+R3738:3755 VQC.Real <> Rmult_plus_distr_l prfax
+R3738:3755 VQC.Real <> Rmult_plus_distr_l prfax
+R3738:3755 VQC.Real <> Rmult_plus_distr_l prfax
+R3768:3776 VQC.Real <> Rplus_0_l prfax
+R3768:3776 VQC.Real <> Rplus_0_l prfax
+R3768:3776 VQC.Real <> Rplus_0_l prfax
+prf 3806:3823 <> Rmult_plus_distr_r
+R3843:3843 VQC.Real <> R defax
+R3860:3862 Coq.Init.Logic <> :type_scope:x_'='_x not
+R3846:3846 VQC.Real <> :R_scope:x_'*'_x not
+R3854:3857 VQC.Real <> :R_scope:x_'*'_x not
+R3849:3851 VQC.Real <> :R_scope:x_'+'_x not
+R3847:3848 VQC.Real <> r1 var
+R3852:3853 VQC.Real <> r2 var
+R3858:3859 VQC.Real <> r3 var
+R3870:3872 VQC.Real <> :R_scope:x_'+'_x not
+R3865:3867 VQC.Real <> :R_scope:x_'*'_x not
+R3863:3864 VQC.Real <> r1 var
+R3868:3869 VQC.Real <> r3 var
+R3875:3877 VQC.Real <> :R_scope:x_'*'_x not
+R3873:3874 VQC.Real <> r2 var
+R3878:3879 VQC.Real <> r3 var
+R3942:3951 VQC.Real <> Rmult_comm prfax
+R3942:3951 VQC.Real <> Rmult_comm prfax
+R3942:3951 VQC.Real <> Rmult_comm prfax
+R3964:3981 VQC.Real <> Rmult_plus_distr_l prfax
+R3964:3981 VQC.Real <> Rmult_plus_distr_l prfax
+R3964:3981 VQC.Real <> Rmult_plus_distr_l prfax
+R3997:4006 VQC.Real <> Rmult_comm prfax
+R3997:4006 VQC.Real <> Rmult_comm prfax
+R3997:4006 VQC.Real <> Rmult_comm prfax
+R3997:4006 VQC.Real <> Rmult_comm prfax
+prf 4040:4045 <> Rinv_r
+R4058:4058 VQC.Real <> R defax
+R4067:4070 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R4078:4080 Coq.Init.Logic <> :type_scope:x_'='_x not
+R4072:4074 VQC.Real <> :R_scope:x_'*'_x not
+R4071:4071 VQC.Real <> r var
+R4075:4076 VQC.Real <> :R_scope:'/'_x not
+R4077:4077 VQC.Real <> r var
+R4062:4065 Coq.Init.Logic <> :type_scope:x_'<>'_x not
+R4061:4061 VQC.Real <> r var
+R4133:4142 VQC.Real <> Rmult_comm prfax
+R4133:4142 VQC.Real <> Rmult_comm prfax
+R4133:4142 VQC.Real <> Rmult_comm prfax
+R4153:4158 VQC.Real <> Rinv_l prfax
+R4153:4158 VQC.Real <> Rinv_l prfax
+R4421:4424 Coq.setoid_ring.Ring <> <> lib
+R4442:4446 Coq.setoid_ring.Field <> <> lib
+prf 4456:4468 <> R_Ring_Theory
+R4472:4482 Coq.setoid_ring.Ring_theory <> ring_theory rec
+R4514:4515 Coq.Init.Logic <> eq ind
+R4509:4512 VQC.Real <> Ropp defax
+R4502:4507 VQC.Real <> Rminus def
+R4496:4500 VQC.Real <> Rmult defax
+R4490:4494 VQC.Real <> Rplus defax
+R4487:4488 VQC.Real <> R1 defax
+R4484:4485 VQC.Real <> R0 defax
+R4585:4593 VQC.Real <> Rplus_0_l prfax
+R4585:4593 VQC.Real <> Rplus_0_l prfax
+R4624:4633 VQC.Real <> Rplus_comm prfax
+R4624:4633 VQC.Real <> Rplus_comm prfax
+R4674:4684 VQC.Real <> Rplus_assoc prfax
+R4674:4684 VQC.Real <> Rplus_assoc prfax
+R4674:4684 VQC.Real <> Rplus_assoc prfax
+R4744:4752 VQC.Real <> Rmult_1_l prfax
+R4744:4752 VQC.Real <> Rmult_1_l prfax
+R4783:4792 VQC.Real <> Rmult_comm prfax
+R4783:4792 VQC.Real <> Rmult_comm prfax
+R4833:4843 VQC.Real <> Rmult_assoc prfax
+R4833:4843 VQC.Real <> Rmult_assoc prfax
+R4833:4843 VQC.Real <> Rmult_assoc prfax
+R4881:4898 VQC.Real <> Rmult_plus_distr_r thm
+R4881:4898 VQC.Real <> Rmult_plus_distr_r thm
+R4963:4973 VQC.Real <> Rplus_opp_r prfax
+R4963:4973 VQC.Real <> Rplus_opp_r prfax
+R5003:5015 VQC.Real <> R_Ring_Theory thm
+prf 5027:5040 <> R_Field_Theory
+R5044:5055 Coq.setoid_ring.Field_theory <> field_theory rec
+R5097:5098 Coq.Init.Logic <> eq ind
+R5092:5095 VQC.Real <> Rinv defax
+R5087:5090 VQC.Real <> Rdiv def
+R5082:5085 VQC.Real <> Ropp defax
+R5075:5080 VQC.Real <> Rminus def
+R5069:5073 VQC.Real <> Rmult defax
+R5063:5067 VQC.Real <> Rplus defax
+R5060:5061 VQC.Real <> R1 defax
+R5057:5058 VQC.Real <> R0 defax
+R5149:5161 VQC.Real <> R_Ring_Theory thm
+R5149:5161 VQC.Real <> R_Ring_Theory thm
+R5185:5193 VQC.Real <> R1_neq_R0 prfax
+R5185:5193 VQC.Real <> R1_neq_R0 prfax
+R5264:5269 VQC.Real <> Rinv_l prfax
+R5264:5269 VQC.Real <> Rinv_l prfax
+R5301:5314 VQC.Real <> R_Field_Theory thm
+def 5376:5385 <> ring_test1
+R5401:5401 VQC.Real <> R defax
+R5410:5412 Coq.Init.Logic <> :type_scope:x_'='_x not
+R5406:5408 VQC.Real <> :R_scope:x_'+'_x not
+R5405:5405 VQC.Real <> x var
+R5409:5409 VQC.Real <> x var
+R5414:5416 VQC.Real <> :R_scope:x_'*'_x not
+R5417:5417 VQC.Real <> x var
+def 5461:5470 <> ring_test2
+R5489:5489 VQC.Real <> R defax
+R5502:5505 Coq.Init.Logic <> :type_scope:x_'='_x not
+R5498:5500 VQC.Real <> :R_scope:x_'+'_x not
+R5494:5496 VQC.Real <> :R_scope:x_'*'_x not
+R5493:5493 VQC.Real <> x var
+R5497:5497 VQC.Real <> y var
+R5501:5501 VQC.Real <> z var
+R5507:5509 VQC.Real <> :R_scope:x_'+'_x not
+R5506:5506 VQC.Real <> z var
+R5511:5513 VQC.Real <> :R_scope:x_'*'_x not
+R5510:5510 VQC.Real <> y var
+R5514:5514 VQC.Real <> x var
+def 5552:5562 <> field_test1
+R5580:5580 VQC.Real <> R defax
+R5590:5593 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R5603:5605 Coq.Init.Logic <> :type_scope:x_'='_x not
+R5599:5601 VQC.Real <> :R_scope:x_'/'_x not
+R5595:5597 VQC.Real <> :R_scope:x_'*'_x not
+R5594:5594 VQC.Real <> x var
+R5598:5598 VQC.Real <> y var
+R5602:5602 VQC.Real <> x var
+R5606:5606 VQC.Real <> y var
+R5585:5588 Coq.Init.Logic <> :type_scope:x_'<>'_x not
+R5584:5584 VQC.Real <> x var
+ax 5852:5854 <> Rlt
+R5859:5862 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R5864:5867 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R5863:5863 VQC.Real <> R defax
+R5858:5858 VQC.Real <> R defax
+R5888:5890 VQC.Real <> Rlt defax
+not 5881:5881 <> :R_scope:x_'<'_x
+def 5915:5917 <> Rgt
+R5926:5926 VQC.Real <> R defax
+R5941:5943 VQC.Real <> :R_scope:x_'<'_x not
+R5939:5940 VQC.Real <> r2 var
+R5944:5945 VQC.Real <> r1 var
+def 5959:5961 <> Rle
+R5970:5970 VQC.Real <> R defax
+R5990:5993 Coq.Init.Logic <> :type_scope:x_'\/'_x not
+R5985:5987 VQC.Real <> :R_scope:x_'<'_x not
+R5983:5984 VQC.Real <> r1 var
+R5988:5989 VQC.Real <> r2 var
+R5996:5998 Coq.Init.Logic <> :type_scope:x_'='_x not
+R5994:5995 VQC.Real <> r1 var
+R5999:6000 VQC.Real <> r2 var
+def 6014:6016 <> Rge
+R6025:6025 VQC.Real <> R defax
+R6047:6050 Coq.Init.Logic <> :type_scope:x_'\/'_x not
+R6038:6040 VQC.Real <> Rgt def
+R6045:6046 VQC.Real <> r2 var
+R6042:6043 VQC.Real <> r1 var
+R6053:6055 Coq.Init.Logic <> :type_scope:x_'='_x not
+R6051:6052 VQC.Real <> r1 var
+R6056:6057 VQC.Real <> r2 var
+R6075:6077 VQC.Real <> Rle def
+not 6067:6067 <> :R_scope:x_'<='_x
+R6104:6106 VQC.Real <> Rge def
+not 6096:6096 <> :R_scope:x_'>='_x
+R6132:6134 VQC.Real <> Rgt def
+not 6125:6125 <> :R_scope:x_'>'_x
+ax 6154:6166 <> total_order_T
+R6185:6185 VQC.Real <> R defax
+R6209:6212 Coq.Init.Specif <> :type_scope:x_'+'_'{'_x_'}' not
+R6220:6220 Coq.Init.Specif <> :type_scope:x_'+'_'{'_x_'}' not
+R6188:6188 Coq.Init.Specif <> :type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R6196:6200 Coq.Init.Specif <> :type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R6208:6208 Coq.Init.Specif <> :type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R6191:6193 VQC.Real <> :R_scope:x_'<'_x not
+R6189:6190 VQC.Real <> r1 var
+R6194:6195 VQC.Real <> r2 var
+R6203:6205 Coq.Init.Logic <> :type_scope:x_'='_x not
+R6201:6202 VQC.Real <> r1 var
+R6206:6207 VQC.Real <> r2 var
+R6215:6217 VQC.Real <> :R_scope:x_'>'_x not
+R6213:6214 VQC.Real <> r1 var
+R6218:6219 VQC.Real <> r2 var
+ax 6232:6239 <> Rlt_asym
+R6258:6258 VQC.Real <> R defax
+R6268:6271 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R6272:6273 Coq.Init.Logic <> :type_scope:'~'_x not
+R6276:6278 VQC.Real <> :R_scope:x_'<'_x not
+R6274:6275 VQC.Real <> r2 var
+R6279:6280 VQC.Real <> r1 var
+R6263:6265 VQC.Real <> :R_scope:x_'<'_x not
+R6261:6262 VQC.Real <> r1 var
+R6266:6267 VQC.Real <> r2 var
+ax 6290:6298 <> Rlt_trans
+R6320:6320 VQC.Real <> R defax
+R6330:6333 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R6341:6344 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R6347:6349 VQC.Real <> :R_scope:x_'<'_x not
+R6345:6346 VQC.Real <> r1 var
+R6350:6351 VQC.Real <> r3 var
+R6336:6338 VQC.Real <> :R_scope:x_'<'_x not
+R6334:6335 VQC.Real <> r2 var
+R6339:6340 VQC.Real <> r3 var
+R6325:6327 VQC.Real <> :R_scope:x_'<'_x not
+R6323:6324 VQC.Real <> r1 var
+R6328:6329 VQC.Real <> r2 var
+ax 6361:6377 <> Rplus_lt_compat_l
+R6398:6398 VQC.Real <> R defax
+R6408:6411 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R6418:6420 VQC.Real <> :R_scope:x_'<'_x not
+R6413:6415 VQC.Real <> :R_scope:x_'+'_x not
+R6412:6412 VQC.Real <> r var
+R6416:6417 VQC.Real <> r1 var
+R6422:6424 VQC.Real <> :R_scope:x_'+'_x not
+R6421:6421 VQC.Real <> r var
+R6425:6426 VQC.Real <> r2 var
+R6403:6405 VQC.Real <> :R_scope:x_'<'_x not
+R6401:6402 VQC.Real <> r1 var
+R6406:6407 VQC.Real <> r2 var
+ax 6436:6452 <> Rmult_lt_compat_l
+R6473:6473 VQC.Real <> R defax
+R6481:6484 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R6492:6495 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R6502:6504 VQC.Real <> :R_scope:x_'<'_x not
+R6497:6499 VQC.Real <> :R_scope:x_'*'_x not
+R6496:6496 VQC.Real <> r var
+R6500:6501 VQC.Real <> r1 var
+R6506:6508 VQC.Real <> :R_scope:x_'*'_x not
+R6505:6505 VQC.Real <> r var
+R6509:6510 VQC.Real <> r2 var
+R6487:6489 VQC.Real <> :R_scope:x_'<'_x not
+R6485:6486 VQC.Real <> r1 var
+R6490:6491 VQC.Real <> r2 var
+R6477:6479 VQC.Real <> :R_scope:x_'<'_x not
+R6480:6480 VQC.Real <> r var
+def 7112:7125 <> is_upper_bound
+R7131:7134 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R7130:7130 VQC.Real <> R defax
+R7144:7144 VQC.Real <> R defax
+R7159:7159 VQC.Real <> R defax
+R7165:7168 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R7170:7173 VQC.Real <> :R_scope:x_'<='_x not
+R7169:7169 VQC.Real <> x var
+R7174:7174 VQC.Real <> m var
+R7162:7162 VQC.Real <> E var
+R7164:7164 VQC.Real <> x var
+def 7189:7193 <> bound
+R7199:7202 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R7198:7198 VQC.Real <> R defax
+R7212:7218 Coq.Init.Logic <> :type_scope:'exists'_x_'..'_x_','_x not
+R7224:7225 Coq.Init.Logic <> :type_scope:'exists'_x_'..'_x_','_x not
+R7223:7223 VQC.Real <> R defax
+R7226:7239 VQC.Real <> is_upper_bound def
+R7243:7243 VQC.Real <> m var
+R7241:7241 VQC.Real <> E var
+def 7258:7263 <> is_lub
+R7269:7272 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R7268:7268 VQC.Real <> R defax
+R7282:7282 VQC.Real <> R defax
+R7308:7312 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R7353:7353 Coq.Init.Logic <> :type_scope:x_'/\'_x not
+R7290:7303 VQC.Real <> is_upper_bound def
+R7307:7307 VQC.Real <> m var
+R7305:7305 VQC.Real <> E var
+R7322:7322 VQC.Real <> R defax
+R7343:7346 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R7348:7351 VQC.Real <> :R_scope:x_'<='_x not
+R7347:7347 VQC.Real <> m var
+R7352:7352 VQC.Real <> b var
+R7325:7338 VQC.Real <> is_upper_bound def
+R7342:7342 VQC.Real <> b var
+R7340:7340 VQC.Real <> E var
+ax 7365:7376 <> completeness
+R7394:7397 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R7393:7393 VQC.Real <> R defax
+R7417:7420 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R7421:7421 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R7439:7443 Coq.Init.Logic <> :type_scope:x_'->'_x not
+R7444:7445 Coq.Init.Specif <> :type_scope:'{'_x_':'_x_'|'_x_'}' not
+R7447:7447 Coq.Init.Specif <> :type_scope:'{'_x_':'_x_'|'_x_'}' not
+R7449:7451 Coq.Init.Specif <> :type_scope:'{'_x_':'_x_'|'_x_'}' not
+R7462:7463 Coq.Init.Specif <> :type_scope:'{'_x_':'_x_'|'_x_'}' not
+R7448:7448 VQC.Real <> R defax
+R7452:7457 VQC.Real <> is_lub def
+R7461:7461 VQC.Real <> m var
+R7459:7459 VQC.Real <> E var
+R7422:7428 Coq.Init.Logic <> :type_scope:'exists'_x_'..'_x_','_x not
+R7434:7435 Coq.Init.Logic <> :type_scope:'exists'_x_'..'_x_','_x not
+R7433:7433 VQC.Real <> R defax
+R7436:7436 VQC.Real <> E var
+R7438:7438 VQC.Real <> x var
+R7410:7414 VQC.Real <> bound def
+R7416:7416 VQC.Real <> E var
+prf 7745:7751 <> Rlt_0_1
+R7756:7758 VQC.Real <> :R_scope:x_'<'_x not
+def 8018:8025 <> lt_sqrt2
+R8032:8032 VQC.Real <> R defax
+R8043:8045 VQC.Real <> :R_scope:x_'<'_x not
+R8039:8041 VQC.Real <> :R_scope:x_'*'_x not
+R8038:8038 VQC.Real <> x var
+R8042:8042 VQC.Real <> x var
+prf 8199:8218 <> upper_bound_2_sqrt_2
+R8222:8235 VQC.Real <> is_upper_bound def
+R8237:8244 VQC.Real <> lt_sqrt2 def
+R8265:8278 VQC.Real <> is_upper_bound def
+R8281:8288 VQC.Real <> lt_sqrt2 def
+R8332:8344 VQC.Real <> total_order_T prfax
+R8332:8344 VQC.Real <> total_order_T prfax
+R8385:8393 VQC.Real <> Rplus_0_r thm
+R8385:8393 VQC.Real <> Rplus_0_r thm
+R8385:8393 VQC.Real <> Rplus_0_r thm
+R8410:8418 VQC.Real <> Rlt_trans prfax
+R8410:8418 VQC.Real <> Rlt_trans prfax
+R8431:8447 VQC.Real <> Rplus_lt_compat_l prfax
+R8431:8447 VQC.Real <> Rplus_lt_compat_l prfax
+R8460:8466 VQC.Real <> Rlt_0_1 prfax
+R8460:8466 VQC.Real <> Rlt_0_1 prfax
+R8481:8490 VQC.Real <> Rplus_comm prfax
+R8481:8490 VQC.Real <> Rplus_comm prfax
+R8481:8490 VQC.Real <> Rplus_comm prfax
+R8503:8519 VQC.Real <> Rplus_lt_compat_l prfax
+R8503:8519 VQC.Real <> Rplus_lt_compat_l prfax
+R8569:8577 VQC.Real <> Rplus_0_r thm
+R8569:8577 VQC.Real <> Rplus_0_r thm
+R8569:8577 VQC.Real <> Rplus_0_r thm
+R8593:8609 VQC.Real <> Rplus_lt_compat_l prfax
+R8593:8609 VQC.Real <> Rplus_lt_compat_l prfax
+R8622:8628 VQC.Real <> Rlt_0_1 prfax
+R8622:8628 VQC.Real <> Rlt_0_1 prfax
+R8648:8650 VQC.Real <> :R_scope:x_'<'_x not
+R8644:8646 VQC.Real <> :R_scope:x_'*'_x not
+R8652:8654 VQC.Real <> :R_scope:x_'*'_x not
+R8648:8650 VQC.Real <> :R_scope:x_'<'_x not
+R8644:8646 VQC.Real <> :R_scope:x_'*'_x not
+R8652:8654 VQC.Real <> :R_scope:x_'*'_x not
+R8669:8685 VQC.Real <> Rmult_lt_compat_l prfax
+R8669:8685 VQC.Real <> Rmult_lt_compat_l prfax
+R8700:8708 VQC.Real <> Rlt_trans prfax
+R8700:8708 VQC.Real <> Rlt_trans prfax
+R8722:8728 VQC.Real <> Rlt_0_1 prfax
+R8722:8728 VQC.Real <> Rlt_0_1 prfax
+R8770:8779 VQC.Real <> Rmult_comm prfax
+R8782:8790 VQC.Real <> Rmult_1_l prfax
+R8770:8779 VQC.Real <> Rmult_comm prfax
+R8770:8779 VQC.Real <> Rmult_comm prfax
+R8782:8790 VQC.Real <> Rmult_1_l prfax
+R8782:8790 VQC.Real <> Rmult_1_l prfax
+R8810:8818 VQC.Real <> Rlt_trans prfax
+R8810:8818 VQC.Real <> Rlt_trans prfax
+prf 8860:8870 <> bound_sqrt2
+R8874:8878 VQC.Real <> bound def
+R8880:8887 VQC.Real <> lt_sqrt2 def
+R8913:8932 VQC.Real <> upper_bound_2_sqrt_2 thm
+R8913:8932 VQC.Real <> upper_bound_2_sqrt_2 thm
+prf 9066:9076 <> ex_lt_sqrt2
+R9080:9086 Coq.Init.Logic <> :type_scope:'exists'_x_'..'_x_','_x not
+R9088:9089 Coq.Init.Logic <> :type_scope:'exists'_x_'..'_x_','_x not
+R9090:9097 VQC.Real <> lt_sqrt2 def
+R9099:9099 VQC.Real <> x var
+R9129:9136 VQC.Real <> lt_sqrt2 def
+R9150:9158 VQC.Real <> Rmult_1_l prfax
+R9150:9158 VQC.Real <> Rmult_1_l prfax
+R9150:9158 VQC.Real <> Rmult_1_l prfax
+R9176:9184 VQC.Real <> Rplus_0_r thm
+R9176:9184 VQC.Real <> Rplus_0_r thm
+R9176:9184 VQC.Real <> Rplus_0_r thm
+R9206:9222 VQC.Real <> Rplus_lt_compat_l prfax
+R9206:9222 VQC.Real <> Rplus_lt_compat_l prfax
+R9233:9239 VQC.Real <> Rlt_0_1 prfax
+R9233:9239 VQC.Real <> Rlt_0_1 prfax
+def 9446:9450 <> sqrt2
+R9455:9466 VQC.Real <> completeness prfax
+R9489:9499 VQC.Real <> ex_lt_sqrt2 thm
+R9477:9487 VQC.Real <> bound_sqrt2 thm
+R9468:9475 VQC.Real <> lt_sqrt2 def

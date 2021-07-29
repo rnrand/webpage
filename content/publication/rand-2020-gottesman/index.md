@@ -34,8 +34,8 @@ publishDate: '2021-07-26T21:34:21.525087Z'
 publication_types:
 - '1'
 abstract: ''
-publication: '*Proceedings of the 17th International Conference on Quantum Physics
-  and Logic, QPL*'
+publication: '*International Conference on Quantum Physics
+  and Logic (QPL 2020)*'
 url_pdf: files/qpl_2020.pdf
 url_slides: files/qpl_2020_slides.pdf
 url_video: https://youtu.be/NLdCUVI72gU

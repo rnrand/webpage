@@ -5,8 +5,8 @@ title: Terminal games with three terminals have proper Nash equilibria
 subtitle: ''
 summary: ''
 authors:
-- E Boros
-- R Rand
+- Endre Boros
+- Robert Rand
 tags: []
 categories: []
 date: '2009-01-01'
@@ -32,7 +32,8 @@ publishDate: '2021-07-26T21:34:18.746014Z'
 publication_types:
 - '4'
 abstract: ''
-publication: ''
-
+publication: '*RUTCOR Research Report*'
 url_pdf: files/terminal_games.pdf
 ---
+
+We believe that there is a flaw in the inductive proof in this report. Please note before citing.

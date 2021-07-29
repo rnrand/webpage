@@ -1,0 +1,15 @@
+DIGEST 1db99cac029b698e748580d83adb771c
+FVQC.RealTest
+R70:75 Coq.Strings.String <> <> lib
+R102:105 VQC.Real <> <> lib
+ax 119:125 <> MISSING
+mod 142:146 <> Check
+R212:218 VQC.RealTest <> MISSING defax
+R212:218 VQC.RealTest <> MISSING defax
+R411:414 Coq.Init.Datatypes <> Some constr
+R411:414 Coq.Init.Datatypes <> Some constr
+R594:597 Coq.Init.Datatypes <> None constr
+R594:597 Coq.Init.Datatypes <> None constr
+R679:683 VQC.RealTest Check <> mod
+R711:714 VQC.Real <> <> lib
+R737:740 Coq.Init.Logic <> True ind

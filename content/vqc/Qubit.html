@@ -1,0 +1,440 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link href="common/css/sf.css" rel="stylesheet" type="text/css"/>
+<title>Qubit: The Building Blocks of Quantum Computing</title>
+<link href="common/jquery-ui/jquery-ui.css" rel="stylesheet">
+<script src="common/jquery-ui/external/jquery/jquery.js"></script>
+<script src="common/jquery-ui/jquery-ui.js"></script>
+<script src="common/toggleproofs.js"></script>
+<link href="common/css/vqc.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+
+<div id="page">
+
+<div id="header">
+<div id='logoinheader'><a href='https://softwarefoundations.cis.upenn.edu'>
+<img src='common/media/image/sf_logo_sm.png' alt='Software Foundations Logo'></a></div>
+<div class='booktitleinheader'><a href='index.html'>Volume Q: Verified Quantum Computing</a></div>
+<ul id='menu'>
+   <li class='section_name'><a href='toc.html'>Table of Contents</a></li>
+   <li class='section_name'><a href='coqindex.html'>Index</a></li>
+   <li class='section_name'><a href='deps.html'>Roadmap</a></li>
+</ul>
+</div>
+
+<div id="main">
+
+<h1 class="libtitle">Qubit<span class="subtitle">The Building Blocks of Quantum Computing</span></h1>
+
+
+<div class="code code-tight">
+
+<span class="id" title="variable">From</span> <span class="id" title="variable">VQC</span> <span class="id" title="keyword">Require</span> <span class="id" title="keyword">Export</span> <a class="idref" href="Matrix.html#"><span class="id" title="library">Matrix</span></a>.<br/>
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <a class="idref" href="http://coq.inria.fr/library/Coq.Logic.FunctionalExtensionality.html#"><span class="id" title="library">FunctionalExtensionality</span></a>.<br/>
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <a class="idref" href="http://coq.inria.fr/library/Coq.Bool.Bool.html#"><span class="id" title="library">Bool</span></a>.<br/>
+</div>
+
+<div class="doc">
+Amazingly, Coq doesn't have this in its standard library, despite
+    having <i>5</i> variations on the same. For now, we'll prove it
+    ourselves. For good measure, we'll prove another version too. 
+</div>
+<div class="code code-tight">
+
+<span class="id" title="keyword">Lemma</span> <a name="pow2_sqrt"><span class="id" title="lemma">pow2_sqrt</span></a> : <span style='font-size:120%;'>&forall;</span><span class="id" title="variable">x</span>:<a class="idref" href="http://coq.inria.fr/library/Coq.Reals.Rdefinitions.html#R"><span class="id" title="axiom">R</span></a>, 0 ≤ <a class="idref" href="Qubit.html#x"><span class="id" title="variable">x</span></a> → (√ <a class="idref" href="Qubit.html#x"><span class="id" title="variable">x</span></a>) ^ 2 = <a class="idref" href="Qubit.html#x"><span class="id" title="variable">x</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>. <span class="id" title="tactic">intros</span>; <span class="id" title="tactic">simpl</span>; <span class="id" title="tactic">rewrite</span> <a class="idref" href="http://coq.inria.fr/library/Coq.Reals.RIneq.html#Rmult_1_r"><span class="id" title="lemma">Rmult_1_r</span></a>, <a class="idref" href="http://coq.inria.fr/library/Coq.Reals.R_sqrt.html#sqrt_def"><span class="id" title="lemma">sqrt_def</span></a>; <span class="id" title="tactic">auto</span>. <span class="id" title="keyword">Qed</span>.<br/><hr class='doublespaceincode'/>
+<span class="id" title="keyword">Lemma</span> <a name="pow2_sqrt2"><span class="id" title="lemma">pow2_sqrt2</span></a> : (√ 2) ^ 2 = 2.<br/>
+<span class="id" title="keyword">Proof</span>. <span class="id" title="tactic">apply</span> <a class="idref" href="Qubit.html#pow2_sqrt"><span class="id" title="lemma">pow2_sqrt</span></a>; <span class="id" title="variable">lra</span>. <span class="id" title="keyword">Qed</span>.<br/><hr class='doublespaceincode'/>
+<span class="id" title="keyword">Lemma</span> <a name="pown_sqrt"><span class="id" title="lemma">pown_sqrt</span></a> : <span style='font-size:120%;'>&forall;</span>(<span class="id" title="variable">x</span> : <a class="idref" href="http://coq.inria.fr/library/Coq.Reals.Rdefinitions.html#R"><span class="id" title="axiom">R</span></a>) (<span class="id" title="variable">n</span> : <a class="idref" href="http://coq.inria.fr/library/Coq.Init.Datatypes.html#nat"><span class="id" title="inductive">nat</span></a>), <br/>
+&nbsp;&nbsp;0 ≤ <a class="idref" href="Qubit.html#x"><span class="id" title="variable">x</span></a> → √ <a class="idref" href="Qubit.html#x"><span class="id" title="variable">x</span></a> ^ (<a class="idref" href="http://coq.inria.fr/library/Coq.Init.Datatypes.html#S"><span class="id" title="constructor">S</span></a> (<a class="idref" href="http://coq.inria.fr/library/Coq.Init.Datatypes.html#S"><span class="id" title="constructor">S</span></a> <a class="idref" href="Qubit.html#n"><span class="id" title="variable">n</span></a>)) = (<a class="idref" href="Qubit.html#x"><span class="id" title="variable">x</span></a> * √ <a class="idref" href="Qubit.html#x"><span class="id" title="variable">x</span></a> ^ <a class="idref" href="Qubit.html#n"><span class="id" title="variable">n</span></a>)%<span class="id" title="variable">R</span>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>. <span class="id" title="tactic">simpl</span>. <span class="id" title="tactic">rewrite</span> &lt;- <a class="idref" href="http://coq.inria.fr/library/Coq.Reals.Raxioms.html#Rmult_assoc"><span class="id" title="axiom">Rmult_assoc</span></a>. <span class="id" title="tactic">rewrite</span> <a class="idref" href="http://coq.inria.fr/library/Coq.Reals.R_sqrt.html#sqrt_sqrt"><span class="id" title="lemma">sqrt_sqrt</span></a>; <span class="id" title="tactic">auto</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/><hr class='doublespaceincode'/>
+<span class="id" title="keyword">Lemma</span> <a name="sqrt_neq_0_compat"><span class="id" title="lemma">sqrt_neq_0_compat</span></a> : <span style='font-size:120%;'>&forall;</span><span class="id" title="variable">r</span> : <a class="idref" href="http://coq.inria.fr/library/Coq.Reals.Rdefinitions.html#R"><span class="id" title="axiom">R</span></a>, 0 &lt; <a class="idref" href="Qubit.html#r"><span class="id" title="variable">r</span></a> → (√ <a class="idref" href="Qubit.html#r"><span class="id" title="variable">r</span></a>)%<span class="id" title="variable">R</span> ≠ 0.<br/>
+<span class="id" title="keyword">Proof</span>. <span class="id" title="tactic">intros</span>. <span class="id" title="variable">specialize</span> (<a class="idref" href="http://coq.inria.fr/library/Coq.Reals.R_sqrt.html#sqrt_lt_R<sub>0</sub>"><span class="id" title="lemma">sqrt_lt_R<sub>0</sub></span></a> <span class="id" title="variable">r</span>). <span class="id" title="variable">lra</span>. <span class="id" title="keyword">Qed</span>.<br/><hr class='doublespaceincode'/>
+<span class="id" title="keyword">Lemma</span> <a name="sqrt_inv"><span class="id" title="lemma">sqrt_inv</span></a> : <span style='font-size:120%;'>&forall;</span>(<span class="id" title="variable">r</span> : <a class="idref" href="http://coq.inria.fr/library/Coq.Reals.Rdefinitions.html#R"><span class="id" title="axiom">R</span></a>), 0 &lt; <a class="idref" href="Qubit.html#r"><span class="id" title="variable">r</span></a> → √ (/ <a class="idref" href="Qubit.html#r"><span class="id" title="variable">r</span></a>) = (/ √ <a class="idref" href="Qubit.html#r"><span class="id" title="variable">r</span></a>)%<span class="id" title="variable">R</span>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">replace</span> (/<span class="id" title="variable">r</span>)%<span class="id" title="variable">R</span> <span class="id" title="keyword">with</span> (1/<span class="id" title="variable">r</span>)%<span class="id" title="variable">R</span> <span class="id" title="tactic">by</span> <span class="id" title="variable">lra</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">rewrite</span> <a class="idref" href="http://coq.inria.fr/library/Coq.Reals.R_sqrt.html#sqrt_div_alt"><span class="id" title="lemma">sqrt_div_alt</span></a>, <a class="idref" href="http://coq.inria.fr/library/Coq.Reals.R_sqrt.html#sqrt_1"><span class="id" title="lemma">sqrt_1</span></a> <span class="id" title="tactic">by</span> <span class="id" title="variable">lra</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="variable">lra</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/><hr class='doublespaceincode'/>
+<span class="id" title="keyword">Lemma</span> <a name="sqrt2_inv"><span class="id" title="lemma">sqrt2_inv</span></a> : √ (/ 2) = (/ √ 2)%<span class="id" title="variable">R</span>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="Qubit.html#sqrt_inv"><span class="id" title="lemma">sqrt_inv</span></a>; <span class="id" title="variable">lra</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/><hr class='doublespaceincode'/>
+<span class="id" title="keyword">Lemma</span> <a name="Csqrt_inv"><span class="id" title="lemma">Csqrt_inv</span></a> : <span style='font-size:120%;'>&forall;</span>(<span class="id" title="variable">r</span> : <a class="idref" href="http://coq.inria.fr/library/Coq.Reals.Rdefinitions.html#R"><span class="id" title="axiom">R</span></a>), 0 &lt; <a class="idref" href="Qubit.html#r"><span class="id" title="variable">r</span></a> → <a class="idref" href="Complex.html#RtoC"><span class="id" title="definition">RtoC</span></a> (√ (/ <a class="idref" href="Qubit.html#r"><span class="id" title="variable">r</span></a>)) = (/ √ <a class="idref" href="Qubit.html#r"><span class="id" title="variable">r</span></a>).<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span> <span class="id" title="variable">r</span> <span class="id" title="variable">H</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="Complex.html#c_proj_eq"><span class="id" title="lemma">c_proj_eq</span></a>; <span class="id" title="tactic">simpl</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="variable">field_simplify_eq</span> [(<a class="idref" href="Qubit.html#pow2_sqrt"><span class="id" title="lemma">pow2_sqrt</span></a> <span class="id" title="variable">r</span> (<a class="idref" href="http://coq.inria.fr/library/Coq.Init.Logic.html#or_introl"><span class="id" title="constructor">or_introl</span></a> <span class="id" title="variable">H</span>)) (<a class="idref" href="Qubit.html#sqrt_inv"><span class="id" title="lemma">sqrt_inv</span></a> <span class="id" title="variable">r</span> <span class="id" title="variable">H</span>)].<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">rewrite</span> <a class="idref" href="http://coq.inria.fr/library/Coq.Reals.RIneq.html#Rinv_r"><span class="id" title="lemma">Rinv_r</span></a>. <span class="id" title="tactic">reflexivity</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="Qubit.html#sqrt_neq_0_compat"><span class="id" title="lemma">sqrt_neq_0_compat</span></a>; <span class="id" title="variable">lra</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="Qubit.html#sqrt_neq_0_compat"><span class="id" title="lemma">sqrt_neq_0_compat</span></a>; <span class="id" title="variable">lra</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="variable">field</span>. <span class="id" title="tactic">apply</span> <a class="idref" href="Qubit.html#sqrt_neq_0_compat"><span class="id" title="lemma">sqrt_neq_0_compat</span></a>; <span class="id" title="variable">lra</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/><hr class='doublespaceincode'/>
+<span class="id" title="keyword">Lemma</span> <a name="Csqrt2_inv"><span class="id" title="lemma">Csqrt2_inv</span></a> : <a class="idref" href="Complex.html#RtoC"><span class="id" title="definition">RtoC</span></a> (√ (/ 2)) = (/ √ 2).<br/>
+<span class="id" title="keyword">Proof</span>. <span class="id" title="tactic">apply</span> <a class="idref" href="Qubit.html#Csqrt_inv"><span class="id" title="lemma">Csqrt_inv</span></a>; <span class="id" title="variable">lra</span>. <span class="id" title="keyword">Qed</span>.<br/>
+</div>
+
+<div class="doc">
+<a name="lab20"></a><h1 class="section">Qubits</h1>
+
+<div class="paragraph"> </div>
+
+ Let's start with the basic building block of quantum computing :
+    The qubit 
+</div>
+<div class="code code-tight">
+
+<span class="id" title="keyword">Notation</span> <a name="Qubit"><span class="id" title="abbreviation">Qubit</span></a> := (<a class="idref" href="Matrix.html#Vector"><span class="id" title="abbreviation">Vector</span></a> 2).<br/><hr class='doublespaceincode'/>
+<span class="id" title="keyword">Definition</span> <a name="WF_Qubit"><span class="id" title="definition">WF_Qubit</span></a> (<span class="id" title="variable">ϕ</span> : <a class="idref" href="Qubit.html#Qubit"><span class="id" title="abbreviation">Qubit</span></a>) : <span class="id" title="keyword">Prop</span> := <a class="idref" href="Qubit.html#ϕ"><span class="id" title="variable">ϕ</span></a>† × <a class="idref" href="Qubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> == <a class="idref" href="Matrix.html#I"><span class="id" title="definition">I</span></a> 1.<br/>
+</div>
+
+<div class="doc">
+Note that this is equivalent to saying that <span class="inlinecode">⟨<span class="id" title="variable">ϕ</span>,<span class="id" title="variable">ϕ</span>⟩</span> <span class="inlinecode">=</span> <span class="inlinecode">1</span>,
+    which partially explains the notation for qubits below. 
+<div class="paragraph"> </div>
+
+<a name="lab21"></a><h4 class="section">Exercise: 2 stars, standard, recommended (WF_Qubit_alt)</h4>
+ Prove this statement. 
+</div>
+<div class="code code-tight">
+<span class="id" title="keyword">Theorem</span> <a name="WF_Qubit_alt"><span class="id" title="lemma">WF_Qubit_alt</span></a> : <span style='font-size:120%;'>&forall;</span><span class="id" title="variable">ϕ</span> : <a class="idref" href="Qubit.html#Qubit"><span class="id" title="abbreviation">Qubit</span></a>, <a class="idref" href="Qubit.html#WF_Qubit"><span class="id" title="definition">WF_Qubit</span></a> <a class="idref" href="Qubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> ↔ ⟨<a class="idref" href="Qubit.html#ϕ"><span class="id" title="variable">ϕ</span></a>, <a class="idref" href="Qubit.html#ϕ"><span class="id" title="variable">ϕ</span></a>⟩ = 1.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="comment">(*&nbsp;FILL&nbsp;IN&nbsp;HERE&nbsp;*)</span> <span class="id" title="variable">Admitted</span>.<br/>
+</div>
+
+<span class="proofbox">&#9744;</span> 
+<div class="code code-tight">
+
+<span class="id" title="keyword">Definition</span> <a name="qubit0"><span class="id" title="definition">qubit0</span></a> : <a class="idref" href="Qubit.html#Qubit"><span class="id" title="abbreviation">Qubit</span></a> := <span class="id" title="keyword">fun</span> <span class="id" title="variable">i</span> <span class="id" title="variable">j</span> ⇒ <span class="id" title="keyword">if</span> (<a class="idref" href="Qubit.html#i"><span class="id" title="variable">i</span></a> =? 0)%<span class="id" title="variable">nat</span> <span class="id" title="keyword">then</span> 1 <span class="id" title="keyword">else</span> 0.<br/>
+<span class="id" title="keyword">Definition</span> <a name="qubit1"><span class="id" title="definition">qubit1</span></a> : <a class="idref" href="Qubit.html#Qubit"><span class="id" title="abbreviation">Qubit</span></a> := <span class="id" title="keyword">fun</span> <span class="id" title="variable">i</span> <span class="id" title="variable">j</span> ⇒ <span class="id" title="keyword">if</span> (<a class="idref" href="Qubit.html#i"><span class="id" title="variable">i</span></a> =? 1)%<span class="id" title="variable">nat</span> <span class="id" title="keyword">then</span> 1 <span class="id" title="keyword">else</span> 0.<br/><hr class='doublespaceincode'/>
+<span class="id" title="keyword">Notation</span> "∣ 0 ⟩" := <a class="idref" href="Qubit.html#qubit0"><span class="id" title="definition">qubit0</span></a>.<br/>
+<span class="id" title="keyword">Notation</span> "∣ 1 ⟩" := <a class="idref" href="Qubit.html#qubit1"><span class="id" title="definition">qubit1</span></a>.<br/>
+</div>
+
+<div class="doc">
+A brief aside : Emacs and other text editors, as well as a famous
+    xkcd comic and any well-developed aethestics, don't like seeing
+    left angle braces without corresponding right angle braces. (Blame
+    here goes to Paul Dirac.) Since emacs' auto-indentation will
+    probably go out of whack at this point in the file, I recommend
+    disabling it via M-x electric-indent-mode. 
+<div class="paragraph"> </div>
+
+ With that done, let's show that our two "basis" qubits are indeed
+    proper qubits 
+</div>
+<div class="code code-tight">
+
+<span class="id" title="keyword">Lemma</span> <a name="WF_qubit0"><span class="id" title="lemma">WF_qubit0</span></a> : <a class="idref" href="Qubit.html#WF_Qubit"><span class="id" title="definition">WF_Qubit</span></a> ∣0⟩. <span class="id" title="keyword">Proof</span>. <span class="id" title="variable">lma</span>. <span class="id" title="keyword">Qed</span>.<br/>
+<span class="id" title="keyword">Lemma</span> <a name="WF_qubit1"><span class="id" title="lemma">WF_qubit1</span></a> : <a class="idref" href="Qubit.html#WF_Qubit"><span class="id" title="definition">WF_Qubit</span></a> ∣1⟩. <span class="id" title="keyword">Proof</span>. <span class="id" title="variable">lma</span>. <span class="id" title="keyword">Qed</span>.<br/><hr class='doublespaceincode'/>
+<span class="id" title="keyword">Lemma</span> <a name="qubit_decomposition"><span class="id" title="lemma">qubit_decomposition</span></a> : <span style='font-size:120%;'>&forall;</span>(<span class="id" title="variable">ϕ</span> : <a class="idref" href="Qubit.html#Qubit"><span class="id" title="abbreviation">Qubit</span></a>), <span style='font-size:120%;'>&exist;</span>(<span class="id" title="variable">α</span> <span class="id" title="variable">β</span> : <a class="idref" href="Complex.html#C"><span class="id" title="definition">C</span></a>), <a class="idref" href="Qubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> == <a class="idref" href="Qubit.html#α"><span class="id" title="variable">α</span></a> .* ∣0⟩ .+ <a class="idref" href="Qubit.html#β"><span class="id" title="variable">β</span></a> .* ∣1⟩.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="comment">(*&nbsp;WORKED&nbsp;IN&nbsp;CLASS&nbsp;*)</span><br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span style='font-size:120%;'>&exist;</span>(<span class="id" title="variable">ϕ</span> 0 0)%<span class="id" title="variable">nat</span>, (<span class="id" title="variable">ϕ</span> 1 0)%<span class="id" title="variable">nat</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="variable">lma</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+</div>
+
+<div class="doc">
+<a name="lab22"></a><h1 class="section">Unitaries</h1>
+
+<div class="paragraph"> </div>
+
+ The standard way of operating on a vector is multiplying it by a
+    matrix. If A is an n × n matrix and v is a n-dimensional vector,
+    then A v is another n-dimensional vector.
+
+<div class="paragraph"> </div>
+
+    In the quantum case, we want to restrict A so that for any qubit
+    ϕ, A ϕ is also a valid qubit. Let's try to figure out what this
+    restriction will look like in practice.
+
+<div class="paragraph"> </div>
+
+ 
+</div>
+<div class="code code-tight">
+
+<span class="id" title="keyword">Lemma</span> <a name="valid_qubit_function"><span class="id" title="lemma">valid_qubit_function</span></a> : <span style='font-size:120%;'>&exist;</span>(<span class="id" title="variable">P</span> : <a class="idref" href="Matrix.html#Matrix"><span class="id" title="definition">Matrix</span></a> 2 2 → <span class="id" title="keyword">Prop</span>),<br/>
+&nbsp;&nbsp;<span style='font-size:120%;'>&forall;</span>(<span class="id" title="variable">A</span> : <a class="idref" href="Matrix.html#Matrix"><span class="id" title="definition">Matrix</span></a> 2 2) (<span class="id" title="variable">ϕ</span> : <a class="idref" href="Qubit.html#Qubit"><span class="id" title="abbreviation">Qubit</span></a>), <br/>
+&nbsp;&nbsp;<a class="idref" href="Qubit.html#P"><span class="id" title="variable">P</span></a> <a class="idref" href="Qubit.html#A"><span class="id" title="variable">A</span></a> → <a class="idref" href="Qubit.html#WF_Qubit"><span class="id" title="definition">WF_Qubit</span></a> <a class="idref" href="Qubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> → <a class="idref" href="Qubit.html#WF_Qubit"><span class="id" title="definition">WF_Qubit</span></a> (<a class="idref" href="Qubit.html#A"><span class="id" title="variable">A</span></a> × <a class="idref" href="Qubit.html#ϕ"><span class="id" title="variable">ϕ</span></a>).<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="comment">(*&nbsp;WORKED&nbsp;IN&nbsp;CLASS&nbsp;*)</span><br/>
+&nbsp;&nbsp;<span class="id" title="variable">eexists</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span> <span class="id" title="variable">A</span> <span class="id" title="variable">ϕ</span> <span class="id" title="variable">p</span> <span class="id" title="variable">Q</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="Qubit.html#WF_Qubit"><span class="id" title="definition">WF_Qubit</span></a> <span class="id" title="keyword">in</span> *.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="Matrix.html#inner_product"><span class="id" title="definition">inner_product</span></a> <span class="id" title="keyword">in</span> *.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">rewrite</span> <a class="idref" href="Matrix.html#Mmult_adjoint"><span class="id" title="lemma">Mmult_adjoint</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">rewrite</span> <a class="idref" href="Matrix.html#Mmult_assoc"><span class="id" title="lemma">Mmult_assoc</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">rewrite</span> &lt;- (<a class="idref" href="Matrix.html#Mmult_assoc"><span class="id" title="lemma">Mmult_assoc</span></a> (<span class="id" title="variable">A</span>†)).<br/>
+&nbsp;&nbsp;<span class="id" title="variable">instantiate</span> (1 := <span class="id" title="keyword">fun</span> <span class="id" title="variable">A</span> ⇒ <a class="idref" href="Qubit.html#A"><span class="id" title="variable">A</span></a>† × <a class="idref" href="Qubit.html#A"><span class="id" title="variable">A</span></a> = <a class="idref" href="Matrix.html#I"><span class="id" title="definition">I</span></a> 2) <span class="id" title="keyword">in</span> <span class="id" title="variable">p</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">simpl</span> <span class="id" title="keyword">in</span> <span class="id" title="variable">p</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">rewrite</span> <span class="id" title="variable">p</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">rewrite</span> <a class="idref" href="Matrix.html#Mmult_1_l"><span class="id" title="lemma">Mmult_1_l</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <span class="id" title="variable">Q</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+</div>
+
+<div class="doc">
+We will call these matrices <i>unitary</i> for preserving the unit
+    inner product 
+</div>
+<div class="code code-tight">
+
+<span class="id" title="keyword">Notation</span> <a name="Unitary"><span class="id" title="abbreviation">Unitary</span></a> <span class="id" title="variable">n</span> := (<a class="idref" href="Matrix.html#Matrix"><span class="id" title="definition">Matrix</span></a> <span class="id" title="variable">n</span> <span class="id" title="variable">n</span>).<br/><hr class='doublespaceincode'/>
+<span class="id" title="keyword">Definition</span> <a name="WF_Unitary"><span class="id" title="definition">WF_Unitary</span></a> {<span class="id" title="variable">n</span>} (<span class="id" title="variable">U</span> : <a class="idref" href="Qubit.html#Unitary"><span class="id" title="abbreviation">Unitary</span></a> <a class="idref" href="Qubit.html#n"><span class="id" title="variable">n</span></a>) := <a class="idref" href="Qubit.html#U"><span class="id" title="variable">U</span></a> † × <a class="idref" href="Qubit.html#U"><span class="id" title="variable">U</span></a> == <a class="idref" href="Matrix.html#I"><span class="id" title="definition">I</span></a> <a class="idref" href="Qubit.html#n"><span class="id" title="variable">n</span></a>.<br/>
+<span class="id" title="variable">Transparent</span> <a class="idref" href="Qubit.html#WF_Unitary"><span class="id" title="definition">WF_Unitary</span></a>.<br/>
+</div>
+
+<div class="doc">
+We'll start with three useful unitaries: The identity (I), the
+    Pauli X matrix (X) and the Hadamard matrix (H): 
+<div class="paragraph"> </div>
+
+
+<div class="paragraph"> </div>
+
+
+<div class="paragraph"> </div>
+
+<div class="code code-tight">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="variable">X</span>&nbsp;=&nbsp;01&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div class="paragraph"> </div>
+
+</div>
+
+</div>
+<div class="code code-tight">
+
+<span class="id" title="keyword">Definition</span> <a name="X"><span class="id" title="definition">X</span></a> : <a class="idref" href="Qubit.html#Unitary"><span class="id" title="abbreviation">Unitary</span></a> 2 := <br/>
+&nbsp;&nbsp;<span class="id" title="keyword">fun</span> <span class="id" title="variable">i</span> <span class="id" title="variable">j</span> ⇒ <span class="id" title="keyword">if</span> <a class="idref" href="Qubit.html#i"><span class="id" title="variable">i</span></a> + <a class="idref" href="Qubit.html#j"><span class="id" title="variable">j</span></a> =? 1 <span class="id" title="keyword">then</span> 1 <span class="id" title="keyword">else</span> 0.<br/>
+</div>
+
+<div class="doc">
+
+<div class="paragraph"> </div>
+
+
+<div class="paragraph"> </div>
+
+<div class="code code-tight">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="variable">H</span>&nbsp;=&nbsp;1/√2&nbsp;*&nbsp;1&nbsp;&nbsp;1<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;-1
+<div class="paragraph"> </div>
+
+</div>
+
+</div>
+<div class="code code-tight">
+
+<span class="id" title="keyword">Definition</span> <a name="H"><span class="id" title="definition">H</span></a> : <a class="idref" href="Qubit.html#Unitary"><span class="id" title="abbreviation">Unitary</span></a> 2 :=<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">fun</span> <span class="id" title="variable">i</span> <span class="id" title="variable">j</span> ⇒ <span class="id" title="keyword">if</span> <a class="idref" href="Qubit.html#i"><span class="id" title="variable">i</span></a> + <a class="idref" href="Qubit.html#j"><span class="id" title="variable">j</span></a> =? 2 <span class="id" title="keyword">then</span> -/√2 <span class="id" title="keyword">else</span> /√2.<br/>
+</div>
+
+<div class="doc">
+
+<div class="paragraph"> </div>
+
+
+<div class="paragraph"> </div>
+
+<div class="code code-tight">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="variable">Z</span>&nbsp;=&nbsp;1&nbsp;0<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;-1&nbsp;
+<div class="paragraph"> </div>
+
+</div>
+
+</div>
+<div class="code code-tight">
+
+<span class="id" title="keyword">Definition</span> <a name="Z"><span class="id" title="definition">Z</span></a> : <a class="idref" href="Qubit.html#Unitary"><span class="id" title="abbreviation">Unitary</span></a> 2 := <br/>
+&nbsp;&nbsp;<span class="id" title="keyword">fun</span> <span class="id" title="variable">i</span> <span class="id" title="variable">j</span> ⇒ <span class="id" title="keyword">if</span> <a class="idref" href="Qubit.html#i"><span class="id" title="variable">i</span></a> + <a class="idref" href="Qubit.html#j"><span class="id" title="variable">j</span></a> =? 0 <span class="id" title="keyword">then</span> 1 <span class="id" title="keyword">else</span> <span class="id" title="keyword">if</span> <a class="idref" href="Qubit.html#i"><span class="id" title="variable">i</span></a> + <a class="idref" href="Qubit.html#j"><span class="id" title="variable">j</span></a> =? 2 <span class="id" title="keyword">then</span> -1 <span class="id" title="keyword">else</span> 0.<br/><hr class='doublespaceincode'/>
+<span class="id" title="keyword">Lemma</span> <a name="WF_I"><span class="id" title="lemma">WF_I</span></a> : <a class="idref" href="Qubit.html#WF_Unitary"><span class="id" title="definition">WF_Unitary</span></a> (<a class="idref" href="Matrix.html#I"><span class="id" title="definition">I</span></a> 2). <span class="id" title="keyword">Proof</span>. <span class="id" title="variable">lma</span>. <span class="id" title="keyword">Qed</span>.<br/>
+<span class="id" title="keyword">Lemma</span> <a name="WF_X"><span class="id" title="lemma">WF_X</span></a> : <a class="idref" href="Qubit.html#WF_Unitary"><span class="id" title="definition">WF_Unitary</span></a> <a class="idref" href="Qubit.html#X"><span class="id" title="definition">X</span></a>. <span class="id" title="keyword">Proof</span>. <span class="id" title="variable">lma</span>. <span class="id" title="keyword">Qed</span>.<br/>
+<span class="id" title="keyword">Lemma</span> <a name="WF_Z"><span class="id" title="lemma">WF_Z</span></a> : <a class="idref" href="Qubit.html#WF_Unitary"><span class="id" title="definition">WF_Unitary</span></a> <a class="idref" href="Qubit.html#Z"><span class="id" title="definition">Z</span></a>. <span class="id" title="keyword">Proof</span>. <span class="id" title="variable">lma</span>. <span class="id" title="keyword">Qed</span>.<br/><hr class='doublespaceincode'/>
+<span class="id" title="keyword">Lemma</span> <a name="WF_H"><span class="id" title="lemma">WF_H</span></a> : <a class="idref" href="Qubit.html#WF_Unitary"><span class="id" title="definition">WF_Unitary</span></a> <a class="idref" href="Qubit.html#H"><span class="id" title="definition">H</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="comment">(*&nbsp;WORKED&nbsp;IN&nbsp;CLASS&nbsp;*)</span><br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="Qubit.html#WF_Unitary"><span class="id" title="definition">WF_Unitary</span></a>, <a class="idref" href="Matrix.html#Mmult"><span class="id" title="definition">Mmult</span></a>, <a class="idref" href="Matrix.html#adjoint"><span class="id" title="definition">adjoint</span></a>, <a class="idref" href="Qubit.html#H"><span class="id" title="definition">H</span></a>; <span class="id" title="tactic">simpl</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="variable">by_cell</span>; <span class="id" title="tactic">try</span> <span class="id" title="variable">lca</span>.<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">apply</span> <a class="idref" href="Complex.html#c_proj_eq"><span class="id" title="lemma">c_proj_eq</span></a>; <span class="id" title="tactic">simpl</span>; <span class="id" title="tactic">try</span> <span class="id" title="variable">lra</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="variable">field_simplify</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">repeat</span> <span class="id" title="tactic">rewrite</span> <a class="idref" href="Qubit.html#pown_sqrt"><span class="id" title="lemma">pown_sqrt</span></a>; <span class="id" title="tactic">simpl</span>; <span class="id" title="variable">lra</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="Qubit.html#sqrt_neq_0_compat"><span class="id" title="lemma">sqrt_neq_0_compat</span></a>; <span class="id" title="variable">lra</span>.<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">apply</span> <a class="idref" href="Complex.html#c_proj_eq"><span class="id" title="lemma">c_proj_eq</span></a>; <span class="id" title="tactic">simpl</span>; <span class="id" title="tactic">try</span> <span class="id" title="variable">lra</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="variable">field_simplify</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">repeat</span> <span class="id" title="tactic">rewrite</span> <a class="idref" href="Qubit.html#pown_sqrt"><span class="id" title="lemma">pown_sqrt</span></a>; <span class="id" title="tactic">simpl</span>; <span class="id" title="variable">lra</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="Qubit.html#sqrt_neq_0_compat"><span class="id" title="lemma">sqrt_neq_0_compat</span></a>; <span class="id" title="variable">lra</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/><hr class='doublespaceincode'/>
+<span class="id" title="keyword">Definition</span> <a name="q_plus"><span class="id" title="definition">q_plus</span></a> : <a class="idref" href="Qubit.html#Qubit"><span class="id" title="abbreviation">Qubit</span></a> := (<span class="id" title="keyword">fun</span> <span class="id" title="variable">_</span> <span class="id" title="variable">_</span> ⇒ /√2).<br/>
+<span class="id" title="keyword">Definition</span> <a name="q_minus"><span class="id" title="definition">q_minus</span></a> : <a class="idref" href="Qubit.html#Qubit"><span class="id" title="abbreviation">Qubit</span></a> := (<span class="id" title="keyword">fun</span> <span class="id" title="variable">i</span> <span class="id" title="variable">j</span> ⇒ <span class="id" title="keyword">if</span> <a class="idref" href="Qubit.html#i"><span class="id" title="variable">i</span></a> =? 0 <span class="id" title="keyword">then</span> /√2 <span class="id" title="keyword">else</span> -/√2).<br/><hr class='doublespaceincode'/>
+<span class="id" title="keyword">Notation</span> "∣ + ⟩" := <a class="idref" href="Qubit.html#q_plus"><span class="id" title="definition">q_plus</span></a>.<br/>
+<span class="id" title="keyword">Notation</span> "∣ - ⟩" := <a class="idref" href="Qubit.html#q_minus"><span class="id" title="definition">q_minus</span></a>.<br/>
+</div>
+
+<div class="doc">
+It's worth noticing that if we apply a Hadamard twice, we get our
+    initial state back: 
+</div>
+<div class="code code-tight">
+
+<span class="id" title="keyword">Lemma</span> <a name="Hplus"><span class="id" title="lemma">Hplus</span></a> : <a class="idref" href="Qubit.html#H"><span class="id" title="definition">H</span></a> × ∣+⟩ == ∣0⟩.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="Qubit.html#H"><span class="id" title="definition">H</span></a>, <a class="idref" href="Matrix.html#Mmult"><span class="id" title="definition">Mmult</span></a>, <a class="idref" href="Qubit.html#q_plus"><span class="id" title="definition">q_plus</span></a>.<br/>
+&nbsp;&nbsp;<span class="id" title="variable">by_cell</span>; <span class="id" title="tactic">try</span> <span class="id" title="variable">lca</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="Complex.html#c_proj_eq"><span class="id" title="lemma">c_proj_eq</span></a>; <span class="id" title="tactic">simpl</span>; <span class="id" title="tactic">try</span> <span class="id" title="variable">lra</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="variable">field_simplify</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">repeat</span> <span class="id" title="tactic">rewrite</span> <a class="idref" href="Qubit.html#pown_sqrt"><span class="id" title="lemma">pown_sqrt</span></a>; <span class="id" title="tactic">simpl</span>; <span class="id" title="variable">lra</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="Qubit.html#sqrt_neq_0_compat"><span class="id" title="lemma">sqrt_neq_0_compat</span></a>; <span class="id" title="variable">lra</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+</div>
+
+<div class="doc">
+<a name="lab23"></a><h4 class="section">Exercise: 2 stars, standard, recommended (Htwice)</h4>
+ Prove the general form of double Hadamard application 
+</div>
+<div class="code code-tight">
+<span class="id" title="keyword">Theorem</span> <a name="Htwice"><span class="id" title="lemma">Htwice</span></a> : <span style='font-size:120%;'>&forall;</span><span class="id" title="variable">ϕ</span> : <a class="idref" href="Qubit.html#Qubit"><span class="id" title="abbreviation">Qubit</span></a>, <a class="idref" href="Qubit.html#H"><span class="id" title="definition">H</span></a> × (<a class="idref" href="Qubit.html#H"><span class="id" title="definition">H</span></a> × <a class="idref" href="Qubit.html#ϕ"><span class="id" title="variable">ϕ</span></a>) == <a class="idref" href="Qubit.html#ϕ"><span class="id" title="variable">ϕ</span></a>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="comment">(*&nbsp;FILL&nbsp;IN&nbsp;HERE&nbsp;*)</span> <span class="id" title="variable">Admitted</span>.<br/>
+</div>
+
+<span class="proofbox">&#9744;</span> 
+<div class="doc less-space">
+<div class="paragraph"> </div>
+
+<a name="lab24"></a><h2 class="section">Solving equations with square roots</h2>
+
+<div class="paragraph"> </div>
+
+ We're doing more work than we would like to solve equations with
+    square roots. Here are a few tactics that build on what we've done
+    above to extend <span class="inlinecode"><span class="id" title="variable">field_simplify</span></span> and <span class="inlinecode"><span class="id" title="variable">field</span></span> to deal with
+    roots. 
+</div>
+<div class="code code-tight">
+
+<span class="id" title="keyword">Ltac</span> <span class="id" title="variable">nonzero</span> :=<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">repeat</span> <span class="id" title="tactic">split</span>;<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">try</span> <span class="id" title="keyword">match</span> <span class="id" title="variable">goal</span> <span class="id" title="keyword">with</span><br/>
+&nbsp;&nbsp;| &#x22A2; ?<span class="id" title="variable">x</span> ≠ <a class="idref" href="Complex.html#RtoC"><span class="id" title="definition">RtoC</span></a> 0  ⇒ <span class="id" title="tactic">apply</span> <a class="idref" href="Complex.html#RtoC_neq"><span class="id" title="lemma">RtoC_neq</span></a><br/>
+&nbsp;&nbsp;<span class="id" title="keyword">end</span>;<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">repeat</span> <span class="id" title="keyword">match</span> <span class="id" title="variable">goal</span> <span class="id" title="keyword">with</span> <br/>
+&nbsp;&nbsp;| &#x22A2; √?<span class="id" title="variable">x</span> ≠ 0      ⇒ <span class="id" title="tactic">apply</span> <a class="idref" href="Qubit.html#sqrt_neq_0_compat"><span class="id" title="lemma">sqrt_neq_0_compat</span></a><br/>
+&nbsp;&nbsp;| &#x22A2; (/?<span class="id" title="variable">x</span>)%<span class="id" title="variable">R</span> ≠ 0  ⇒ <span class="id" title="tactic">apply</span> <a class="idref" href="http://coq.inria.fr/library/Coq.Reals.RIneq.html#Rinv_neq_0_compat"><span class="id" title="lemma">Rinv_neq_0_compat</span></a><br/>
+&nbsp;&nbsp;<span class="id" title="keyword">end</span>; <br/>
+&nbsp;&nbsp;<span class="id" title="keyword">match</span> <span class="id" title="variable">goal</span> <span class="id" title="keyword">with</span> <br/>
+&nbsp;&nbsp;| &#x22A2; <span class="id" title="variable">_</span> ≠ <span class="id" title="variable">_</span>        ⇒ <span class="id" title="variable">lra</span><br/>
+&nbsp;&nbsp;| &#x22A2; <span class="id" title="variable">_</span> &lt; <span class="id" title="variable">_</span>        ⇒ <span class="id" title="variable">lra</span><br/>
+&nbsp;&nbsp;<span class="id" title="keyword">end</span>.<br/><hr class='doublespaceincode'/>
+<span class="id" title="keyword">Ltac</span> <span class="id" title="variable">R_field_simplify</span> := <span class="id" title="tactic">repeat</span> <span class="id" title="variable">field_simplify_eq</span> [<a class="idref" href="Qubit.html#pow2_sqrt2"><span class="id" title="lemma">pow2_sqrt2</span></a> <a class="idref" href="Qubit.html#sqrt2_inv"><span class="id" title="lemma">sqrt2_inv</span></a>].<br/>
+<span class="id" title="keyword">Ltac</span> <span class="id" title="variable">R_field</span> := <span class="id" title="variable">R_field_simplify</span>; <span class="id" title="variable">nonzero</span>; <span class="id" title="tactic">trivial</span>.<br/>
+<span class="id" title="keyword">Ltac</span> <span class="id" title="variable">C_field_simplify</span> := <span class="id" title="tactic">repeat</span> <span class="id" title="variable">field_simplify_eq</span> [<a class="idref" href="Complex.html#Csqrt2_square"><span class="id" title="lemma">Csqrt2_square</span></a> <a class="idref" href="Qubit.html#Csqrt2_inv"><span class="id" title="lemma">Csqrt2_inv</span></a>].<br/>
+<span class="id" title="keyword">Ltac</span> <span class="id" title="variable">C_field</span> := <span class="id" title="variable">C_field_simplify</span>; <span class="id" title="variable">nonzero</span>; <span class="id" title="tactic">trivial</span>.<br/>
+</div>
+
+<div class="doc">
+<a name="lab25"></a><h1 class="section">Measurement</h1>
+
+<div class="paragraph"> </div>
+
+ Measurement is a <i>probabilistic</i> operation on a qubit. Since
+    there are (generally) multiple possible outcomes of a measurement,
+    we will represent measurement as a relation. 
+
+<div class="paragraph"> </div>
+
+    Note that some measurements, those with 0 probability, will never occur.
+
+</div>
+<div class="code code-tight">
+
+<span class="id" title="keyword">Inductive</span> <span class="id" title="keyword">measure</span> : <a class="idref" href="Qubit.html#Qubit"><span class="id" title="abbreviation">Qubit</span></a> → (<a class="idref" href="http://coq.inria.fr/library/Coq.Reals.Rdefinitions.html#R"><span class="id" title="axiom">R</span></a> * <a class="idref" href="Qubit.html#Qubit"><span class="id" title="abbreviation">Qubit</span></a>) → <span class="id" title="keyword">Prop</span> :=<br/>
+| <a name="measure0"><span class="id" title="constructor">measure0</span></a> : <span style='font-size:120%;'>&forall;</span>(<span class="id" title="variable">ϕ</span> : <a class="idref" href="Qubit.html#Qubit"><span class="id" title="abbreviation">Qubit</span></a>), <span class="id" title="keyword">measure</span> <a class="idref" href="Qubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> (<a class="idref" href="Complex.html#Cnorm2"><span class="id" title="definition">Cnorm2</span></a> (<a class="idref" href="Qubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> 0%<span class="id" title="variable">nat</span> 0%<span class="id" title="variable">nat</span>), ∣0⟩)<br/>
+| <a name="measure1"><span class="id" title="constructor">measure1</span></a> : <span style='font-size:120%;'>&forall;</span>(<span class="id" title="variable">ϕ</span> : <a class="idref" href="Qubit.html#Qubit"><span class="id" title="abbreviation">Qubit</span></a>), <span class="id" title="keyword">measure</span> <a class="idref" href="Qubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> (<a class="idref" href="Complex.html#Cnorm2"><span class="id" title="definition">Cnorm2</span></a> (<a class="idref" href="Qubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> 1%<span class="id" title="variable">nat</span> 0%<span class="id" title="variable">nat</span>), ∣1⟩).<br/>
+</div>
+
+<div class="doc">
+<a name="lab26"></a><h4 class="section">Exercise: 3 stars, standard, optional (measure_sum)</h4>
+ State and prove that the sum of the measure outcomes for a valid qubit will always be 1. 
+    Hint: Compare the definitions of norm2 and inner_product. 
+</div>
+<div class="code code-tight">
+<span class="comment">(*&nbsp;FILL&nbsp;IN&nbsp;HERE&nbsp;*)</span><br/>
+</div>
+
+<span class="proofbox">&#9744;</span> 
+<div class="code code-tight">
+
+<span class="id" title="keyword">Lemma</span> <a name="measure0_idem"><span class="id" title="lemma">measure0_idem</span></a> : <span style='font-size:120%;'>&forall;</span><span class="id" title="variable">ϕ</span> <span class="id" title="variable">p</span>, <span class="id" title="keyword">measure</span> ∣0⟩ (<a class="idref" href="Qubit.html#p"><span class="id" title="variable">p</span></a>, <a class="idref" href="Qubit.html#ϕ"><span class="id" title="variable">ϕ</span></a>) → <a class="idref" href="Qubit.html#p"><span class="id" title="variable">p</span></a> ≠ 0 → <a class="idref" href="Qubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> = ∣0⟩.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="comment">(*&nbsp;WORKED&nbsp;IN&nbsp;CLASS&nbsp;*)</span><br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">inversion</span> <span class="id" title="variable">H<sub>0</sub></span>; <span class="id" title="tactic">subst</span>.<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">reflexivity</span>.<br/>
+&nbsp;&nbsp;- <span class="id" title="variable">contradict</span> <span class="id" title="variable">H<sub>1</sub></span>. <span class="id" title="variable">lra</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+</div>
+
+<div class="doc">
+<a name="lab27"></a><h4 class="section">Exercise: 1 star, standard, recommended (measure1_idem)</h4>
+
+</div>
+<div class="code code-space">
+<span class="id" title="keyword">Lemma</span> <a name="measure1_idem"><span class="id" title="lemma">measure1_idem</span></a> : <span style='font-size:120%;'>&forall;</span><span class="id" title="variable">ϕ</span> <span class="id" title="variable">p</span>, <span class="id" title="keyword">measure</span> ∣1⟩ (<a class="idref" href="Qubit.html#p"><span class="id" title="variable">p</span></a>, <a class="idref" href="Qubit.html#ϕ"><span class="id" title="variable">ϕ</span></a>) → <a class="idref" href="Qubit.html#p"><span class="id" title="variable">p</span></a> ≠ 0 → <a class="idref" href="Qubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> = ∣1⟩.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="comment">(*&nbsp;FILL&nbsp;IN&nbsp;HERE&nbsp;*)</span> <span class="id" title="variable">Admitted</span>.<br/>
+</div>
+
+<span class="proofbox">&#9744;</span> 
+<div class="code code-tight">
+
+<span class="id" title="keyword">Lemma</span> <a name="measure_plus"><span class="id" title="lemma">measure_plus</span></a> : <span style='font-size:120%;'>&forall;</span><span class="id" title="variable">ϕ</span> <span class="id" title="variable">p</span>, <span class="id" title="keyword">measure</span> ∣+⟩ (<a class="idref" href="Qubit.html#p"><span class="id" title="variable">p</span></a>, <a class="idref" href="Qubit.html#ϕ"><span class="id" title="variable">ϕ</span></a>) → <a class="idref" href="Qubit.html#p"><span class="id" title="variable">p</span></a> = (1/2)%<span class="id" title="variable">R</span>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">intros</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">inversion</span> <span class="id" title="variable">H<sub>0</sub></span>; <span class="id" title="tactic">subst</span>.<br/>
+&nbsp;&nbsp;- <span class="id" title="variable">R_field</span>.<br/>
+&nbsp;&nbsp;- <span class="id" title="variable">R_field</span>.<br/>
+<span class="comment">(*<br/>
+&nbsp;&nbsp;-&nbsp;sqrt_solve.<br/>
+&nbsp;&nbsp;-&nbsp;sqrt_solve.<br/>
+*)</span><br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+</div>
+
+<div class="doc">
+<a name="lab28"></a><h4 class="section">Exercise: 2 stars, standard, recommended (measure_minus)</h4>
+
+</div>
+<div class="code code-space">
+<span class="id" title="keyword">Lemma</span> <a name="measure_minus"><span class="id" title="lemma">measure_minus</span></a> : <span style='font-size:120%;'>&forall;</span><span class="id" title="variable">ϕ</span> <span class="id" title="variable">p</span>, <span class="id" title="keyword">measure</span> ∣-⟩ (<a class="idref" href="Qubit.html#p"><span class="id" title="variable">p</span></a>, <a class="idref" href="Qubit.html#ϕ"><span class="id" title="variable">ϕ</span></a>) → <a class="idref" href="Qubit.html#p"><span class="id" title="variable">p</span></a> = (1/2)%<span class="id" title="variable">R</span>.<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="comment">(*&nbsp;FILL&nbsp;IN&nbsp;HERE&nbsp;*)</span> <span class="id" title="variable">Admitted</span>.<br/>
+</div>
+
+<span class="proofbox">&#9744;</span> 
+<div class="code code-tight">
+
+<span class="comment">(*&nbsp;*)</span><br/>
+<span class="comment">(*&nbsp;Thu&nbsp;Aug&nbsp;1&nbsp;13:45:52&nbsp;EDT&nbsp;2019&nbsp;*)</span><br/>
+</div>
+</div>
+
+
+
+</div>
+
+</body>
+</html>

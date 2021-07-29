@@ -31,9 +31,9 @@ image:
 projects: []
 publishDate: '2021-07-26T21:34:19.872225Z'
 publication_types:
-- '1'
+- '6'
 abstract: ''
-publication: '*The Fourth International Workshop on Coq for Programming Languages (CoqPL)*'
+publication: '*International Workshop on Coq for Programming Languages (CoqPL 2018)*'
 url_pdf: files/coqpl_2018.pdf
 url_slides: files/coqpl_2018_talk.pptx
 url_video: https://youtu.be/4dCAh9GN4Lo

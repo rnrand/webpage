@@ -1,8 +1,8 @@
 ---
 # Documentation: https://wowchemy.com/docs/managing-content/
 
-title: A verified optimizer for quantum circuits
-subtitle: ''
+title: A Verified Optimizer for Quantum Circuits
+subtitle: '*Distinguished Paper*'
 summary: ''
 authors:
 - Kesha Hietala
@@ -42,13 +42,14 @@ uses a semantics of matrices of complex numbers, which is the standard for quant
 matrices symbolically in order to reason about programs that use an arbitrary number of quantum bits. SQIR’s
 careful design and our provided automation make it possible to write and verify a broad range of optimizations
 in VOQC, including full-circuit transformations from cutting-edge optimizers.'
-publication: '*Principles of Programming Languages (POPL)*'
+publication: '*ACM SIGPLAN Symposium on Principles of Programming Languages (POPL 2021)*'
 
 # Custom links (uncomment lines below)
 # links:
 # - name: Custom Link
 #   url: http://example.org
 
+doi: 10.1145/3434318
 url_pdf: 'files/popl_2021_full.pdf'
 url_code: 'https://github.com/inQWIRE/SQIR'
 url_dataset: ''
@@ -60,3 +61,8 @@ url_video: 'https://youtu.be/HckEMLnuI4o'
 
 
 ---
+
+<p>
+{{< youtube HckEMLnuI4o >}}
+</p>
+

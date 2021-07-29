@@ -33,7 +33,14 @@ image:
 projects: []
 publishDate: '2021-07-26T21:34:20.315109Z'
 publication_types:
-- '0'
+- '6'
 abstract: ''
-publication: ''
+publication: 'Presented at the *International Conference on Quantum Physics and Logic (QPL 2019)*'
+url_pdf: files/qpl_2019.pdf
+url_slides: files/qpl_2019_slides.pdf
+links:
+- name: arXiv
+  url: https://arxiv.org/abs/1904.06319
 ---
+
+We elected not to have this appear in the conference proceedings. See our [POPL paper](/publication/hietala-2021-verified/) for a more complete version of this work.

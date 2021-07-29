@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link href="common/css/sf.css" rel="stylesheet" type="text/css"/>
+<title>Multiqubit: Entanglement and Measurement</title>
+<link href="common/jquery-ui/jquery-ui.css" rel="stylesheet">
+<script src="common/jquery-ui/external/jquery/jquery.js"></script>
+<script src="common/jquery-ui/jquery-ui.js"></script>
+<script src="common/toggleproofs.js"></script>
+<link href="common/css/vqc.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+
+<div id="page">
+
+<div id="header">
+<div id='logoinheader'><a href='https://softwarefoundations.cis.upenn.edu'>
+<img src='common/media/image/sf_logo_sm.png' alt='Software Foundations Logo'></a></div>
+<div class='booktitleinheader'><a href='index.html'>Volume Q: Verified Quantum Computing</a></div>
+<ul id='menu'>
+   <li class='section_name'><a href='toc.html'>Table of Contents</a></li>
+   <li class='section_name'><a href='coqindex.html'>Index</a></li>
+   <li class='section_name'><a href='deps.html'>Roadmap</a></li>
+</ul>
+</div>
+
+<div id="main">
+
+<h1 class="libtitle">Multiqubit<span class="subtitle">Entanglement and Measurement</span></h1>
+
+
+<div class="code code-tight">
+
+<span class="id" title="variable">From</span> <span class="id" title="variable">VQC</span> <span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <a class="idref" href="Qubit.html#"><span class="id" title="library">Qubit</span></a>.<br/>
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <a class="idref" href="http://coq.inria.fr/library/Coq.Bool.Bool.html#"><span class="id" title="library">Bool</span></a>.<br/><hr class='doublespaceincode'/>
+<span class="id" title="variable">Opaque</span> <a class="idref" href="Complex.html#C"><span class="id" title="definition">C</span></a>.<br/>
+</div>
+
+<div class="doc">
+<a name="lab29"></a><h1 class="section">Multiple qubits and entanglement</h1>
+
+<div class="paragraph"> </div>
+
+ Quantum computing wouldn't be very interesting if we only
+    had lone qubits. In order to get the power of quantum computing we
+    need multiple qubit systems. 
+</div>
+<div class="code code-tight">
+
+<span class="id" title="keyword">Notation</span> <a name="Qubits"><span class="id" title="abbreviation">Qubits</span></a> <span class="id" title="variable">n</span> := (<a class="idref" href="Matrix.html#Vector"><span class="id" title="abbreviation">Vector</span></a> (2^<span class="id" title="variable">n</span>)).<br/>
+</div>
+
+<div class="doc">
+First, let's look at expressing the basis states: 
+</div>
+<div class="code code-tight">
+<span class="id" title="keyword">Definition</span> <a name="qubit"><span class="id" title="definition">qubit</span></a> (<span class="id" title="variable">x</span> : <a class="idref" href="http://coq.inria.fr/library/Coq.Init.Datatypes.html#nat"><span class="id" title="inductive">nat</span></a>) : <a class="idref" href="Matrix.html#Matrix"><span class="id" title="definition">Matrix</span></a> 2 1 := <span class="id" title="keyword">if</span> <a class="idref" href="Multiqubit.html#x"><span class="id" title="variable">x</span></a> =? 0 <span class="id" title="keyword">then</span> ∣0⟩ <span class="id" title="keyword">else</span> ∣1⟩.<br/>
+<span class="id" title="keyword">Notation</span> "'∣' x '⟩'" := (<a class="idref" href="Multiqubit.html#qubit"><span class="id" title="definition">qubit</span></a> <span class="id" title="variable">x</span>).<br/>
+<span class="id" title="keyword">Notation</span> "∣ x , y , .. , z ⟩" := (<a class="idref" href="Matrix.html#kron"><span class="id" title="definition">kron</span></a> .. (<a class="idref" href="Matrix.html#kron"><span class="id" title="definition">kron</span></a> ∣<span class="id" title="variable">x</span>⟩ ∣<span class="id" title="variable">y</span>⟩) .. ∣<span class="id" title="variable">z</span>⟩) (<span class="id" title="tactic">at</span> <span class="id" title="variable">level</span> 0).<br/><hr class='doublespaceincode'/>
+<span class="id" title="keyword">Lemma</span> <a name="test_qubits"><span class="id" title="lemma">test_qubits</span></a> : ∣0,1⟩ = ∣0⟩ ⊗ ∣1⟩. <span class="id" title="keyword">Proof</span>. <span class="id" title="tactic">reflexivity</span>. <span class="id" title="keyword">Qed</span>.<br/>
+</div>
+
+<div class="doc">
+Certain unitary matrices act on multiple qubits 
+<div class="paragraph"> </div>
+
+
+<div class="paragraph"> </div>
+
+
+<div class="paragraph"> </div>
+
+<div class="code code-tight">
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="variable">CNOT</span>:&nbsp;&nbsp;1000<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0100<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0001<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0010&nbsp;
+<div class="paragraph"> </div>
+
+</div>
+
+</div>
+<div class="code code-tight">
+
+<span class="id" title="keyword">Definition</span> <a name="CNOT"><span class="id" title="definition">CNOT</span></a> : <a class="idref" href="Qubit.html#Unitary"><span class="id" title="abbreviation">Unitary</span></a> 4 := <br/>
+&nbsp;&nbsp;<span class="id" title="keyword">fun</span> <span class="id" title="variable">i</span> <span class="id" title="variable">j</span> ⇒ <span class="id" title="keyword">if</span> ((<a class="idref" href="Multiqubit.html#i"><span class="id" title="variable">i</span></a> =? <a class="idref" href="Multiqubit.html#j"><span class="id" title="variable">j</span></a>) &amp;&amp; (<a class="idref" href="Multiqubit.html#i"><span class="id" title="variable">i</span></a> &lt;? 2)) || (<a class="idref" href="Multiqubit.html#i"><span class="id" title="variable">i</span></a> + <a class="idref" href="Multiqubit.html#j"><span class="id" title="variable">j</span></a> =? 5) <span class="id" title="keyword">then</span> 1 <span class="id" title="keyword">else</span> 0.<br/><hr class='doublespaceincode'/>
+<span class="id" title="keyword">Lemma</span> <a name="CNOT00"><span class="id" title="lemma">CNOT00</span></a> : <a class="idref" href="Multiqubit.html#CNOT"><span class="id" title="definition">CNOT</span></a> × ∣0,0⟩ == ∣0,0⟩. <span class="id" title="keyword">Proof</span>. <span class="id" title="variable">lma</span>. <span class="id" title="keyword">Qed</span>.<br/>
+<span class="id" title="keyword">Lemma</span> <a name="CNOT01"><span class="id" title="lemma">CNOT01</span></a> : <a class="idref" href="Multiqubit.html#CNOT"><span class="id" title="definition">CNOT</span></a> × ∣0,1⟩ == ∣0,1⟩. <span class="id" title="keyword">Proof</span>. <span class="id" title="variable">lma</span>. <span class="id" title="keyword">Qed</span>.<br/>
+<span class="id" title="keyword">Lemma</span> <a name="CNOT10"><span class="id" title="lemma">CNOT10</span></a> : <a class="idref" href="Multiqubit.html#CNOT"><span class="id" title="definition">CNOT</span></a> × ∣1,0⟩ == ∣1,1⟩. <span class="id" title="keyword">Proof</span>. <span class="id" title="variable">lma</span>. <span class="id" title="keyword">Qed</span>.<br/>
+<span class="id" title="keyword">Lemma</span> <a name="CNOT11"><span class="id" title="lemma">CNOT11</span></a> : <a class="idref" href="Multiqubit.html#CNOT"><span class="id" title="definition">CNOT</span></a> × ∣1,1⟩ == ∣1,0⟩. <span class="id" title="keyword">Proof</span>. <span class="id" title="variable">lma</span>. <span class="id" title="keyword">Qed</span>.<br/><hr class='doublespaceincode'/>
+<span class="id" title="keyword">Lemma</span> <a name="CNOTp1"><span class="id" title="lemma">CNOTp1</span></a> : <a class="idref" href="Multiqubit.html#CNOT"><span class="id" title="definition">CNOT</span></a> × (∣+⟩ ⊗ ∣0⟩) == /√2 .* ∣0,0⟩ .+ /√2 .* ∣1,1⟩.<br/>
+<span class="id" title="keyword">Proof</span>. <span class="id" title="variable">lma</span>. <span class="id" title="keyword">Qed</span>.<br/>
+</div>
+
+<div class="doc">
+This particular qubit pair has a name: We call it a Bell state. 
+    (Also known as an EPR pair.) 
+</div>
+<div class="code code-tight">
+
+<span class="id" title="keyword">Definition</span> <a name="bell"><span class="id" title="definition">bell</span></a> : <a class="idref" href="Multiqubit.html#Qubits"><span class="id" title="abbreviation">Qubits</span></a> 2 := /√2 .* ∣0,0⟩ .+ /√2 .* ∣1,1⟩.<br/>
+</div>
+
+<div class="doc">
+We can also apply multiple single qubit gates together using the 
+    Kronecker product 
+</div>
+<div class="code code-tight">
+
+<span class="id" title="keyword">Lemma</span> <a name="XH<sub>01</sub>"><span class="id" title="lemma">XH<sub>01</sub></span></a> : (<a class="idref" href="Qubit.html#X"><span class="id" title="definition">X</span></a> ⊗ <a class="idref" href="Qubit.html#H"><span class="id" title="definition">H</span></a>) × ∣0,1⟩ == ∣1⟩⊗∣-⟩.<br/>
+<span class="id" title="keyword">Proof</span>. <span class="id" title="variable">lma</span>. <span class="id" title="keyword">Qed</span>.<br/><hr class='doublespaceincode'/>
+<span class="id" title="keyword">Lemma</span> <a name="HH<sub>01</sub>"><span class="id" title="lemma">HH<sub>01</sub></span></a> : (<a class="idref" href="Qubit.html#H"><span class="id" title="definition">H</span></a> ⊗ <a class="idref" href="Qubit.html#H"><span class="id" title="definition">H</span></a>) × ∣0,1⟩ == ∣+⟩⊗∣-⟩.<br/>
+<span class="id" title="keyword">Proof</span>. <span class="id" title="variable">lma</span>. <span class="id" title="keyword">Qed</span>.<br/>
+</div>
+
+<div class="doc">
+<a name="lab30"></a><h1 class="section">Total and partial measurement</h1>
+
+<div class="paragraph"> </div>
+
+ Let's start by recapping measurement in a slightly different 
+    form. 
+</div>
+<div class="code code-tight">
+
+<span class="id" title="keyword">Inductive</span> <a name="measure'"><span class="id" title="inductive">measure'</span></a> : <a class="idref" href="Multiqubit.html#Qubits"><span class="id" title="abbreviation">Qubits</span></a> 1 → (<a class="idref" href="http://coq.inria.fr/library/Coq.Reals.Rdefinitions.html#R"><span class="id" title="axiom">R</span></a> * <a class="idref" href="Multiqubit.html#Qubits"><span class="id" title="abbreviation">Qubits</span></a> 1) → <span class="id" title="keyword">Prop</span> :=<br/>
+|  <a name="measure0'"><span class="id" title="constructor">measure0'</span></a> : <span style='font-size:120%;'>&forall;</span><span class="id" title="variable">ϕ</span> <span class="id" title="variable">α</span> <span class="id" title="variable">β</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> == <a class="idref" href="Multiqubit.html#α"><span class="id" title="variable">α</span></a> .* ∣0⟩ .+ <a class="idref" href="Multiqubit.html#β"><span class="id" title="variable">β</span></a> .* ∣1⟩ →<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#measure'"><span class="id" title="inductive">measure'</span></a> <a class="idref" href="Multiqubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> (<a class="idref" href="Complex.html#Cnorm2"><span class="id" title="definition">Cnorm2</span></a> <a class="idref" href="Multiqubit.html#α"><span class="id" title="variable">α</span></a>, ∣0⟩)<br/>
+|  <a name="measure1'"><span class="id" title="constructor">measure1'</span></a> : <span style='font-size:120%;'>&forall;</span><span class="id" title="variable">ϕ</span> <span class="id" title="variable">α</span> <span class="id" title="variable">β</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> == <a class="idref" href="Multiqubit.html#α"><span class="id" title="variable">α</span></a> .* ∣0⟩ .+ <a class="idref" href="Multiqubit.html#β"><span class="id" title="variable">β</span></a> .* ∣1⟩ →<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#measure'"><span class="id" title="inductive">measure'</span></a> <a class="idref" href="Multiqubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> (<a class="idref" href="Complex.html#Cnorm2"><span class="id" title="definition">Cnorm2</span></a> <a class="idref" href="Multiqubit.html#β"><span class="id" title="variable">β</span></a>, ∣1⟩).<br/>
+</div>
+
+<div class="doc">
+<a name="lab31"></a><h2 class="section">Total measurement</h2>
+
+<div class="paragraph"> </div>
+
+ We can define total measurement on two qubits similarly: 
+</div>
+<div class="code code-tight">
+
+<span class="id" title="keyword">Inductive</span> <a name="measure_total"><span class="id" title="inductive">measure_total</span></a> : <a class="idref" href="Multiqubit.html#Qubits"><span class="id" title="abbreviation">Qubits</span></a> 2 → (<a class="idref" href="http://coq.inria.fr/library/Coq.Reals.Rdefinitions.html#R"><span class="id" title="axiom">R</span></a> * <a class="idref" href="Multiqubit.html#Qubits"><span class="id" title="abbreviation">Qubits</span></a> 2) → <span class="id" title="keyword">Prop</span> :=<br/>
+| <a name="measure00"><span class="id" title="constructor">measure00</span></a> : <span style='font-size:120%;'>&forall;</span>(<span class="id" title="variable">ϕ</span> : <a class="idref" href="Multiqubit.html#Qubits"><span class="id" title="abbreviation">Qubits</span></a> 2) (<span class="id" title="variable">α</span> <span class="id" title="variable">β</span> <span class="id" title="variable">γ</span> <span class="id" title="variable">δ</span> : <a class="idref" href="Complex.html#C"><span class="id" title="definition">C</span></a>), <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> == <a class="idref" href="Multiqubit.html#α"><span class="id" title="variable">α</span></a> .* ∣0,0⟩ .+ <a class="idref" href="Multiqubit.html#β"><span class="id" title="variable">β</span></a> .* ∣0,1⟩ .+ <a class="idref" href="Multiqubit.html#γ"><span class="id" title="variable">γ</span></a> .* ∣1,0⟩ .+ <a class="idref" href="Multiqubit.html#δ"><span class="id" title="variable">δ</span></a> .* ∣1,1⟩ →<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#measure_total"><span class="id" title="inductive">measure_total</span></a> <a class="idref" href="Multiqubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> (<a class="idref" href="Complex.html#Cnorm2"><span class="id" title="definition">Cnorm2</span></a> <a class="idref" href="Multiqubit.html#α"><span class="id" title="variable">α</span></a>, ∣0,0⟩)<br/>
+| <a name="measure01"><span class="id" title="constructor">measure01</span></a> : <span style='font-size:120%;'>&forall;</span>(<span class="id" title="variable">ϕ</span> : <a class="idref" href="Multiqubit.html#Qubits"><span class="id" title="abbreviation">Qubits</span></a> 2) (<span class="id" title="variable">α</span> <span class="id" title="variable">β</span> <span class="id" title="variable">γ</span> <span class="id" title="variable">δ</span> : <a class="idref" href="Complex.html#C"><span class="id" title="definition">C</span></a>), <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> == <a class="idref" href="Multiqubit.html#α"><span class="id" title="variable">α</span></a> .* ∣0,0⟩ .+ <a class="idref" href="Multiqubit.html#β"><span class="id" title="variable">β</span></a> .* ∣0,1⟩ .+ <a class="idref" href="Multiqubit.html#γ"><span class="id" title="variable">γ</span></a> .* ∣1,0⟩ .+ <a class="idref" href="Multiqubit.html#δ"><span class="id" title="variable">δ</span></a> .* ∣1,1⟩ →<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#measure_total"><span class="id" title="inductive">measure_total</span></a> <a class="idref" href="Multiqubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> (<a class="idref" href="Complex.html#Cnorm2"><span class="id" title="definition">Cnorm2</span></a> <a class="idref" href="Multiqubit.html#β"><span class="id" title="variable">β</span></a>, ∣0,1⟩)<br/>
+| <a name="measure10"><span class="id" title="constructor">measure10</span></a> : <span style='font-size:120%;'>&forall;</span>(<span class="id" title="variable">ϕ</span> : <a class="idref" href="Multiqubit.html#Qubits"><span class="id" title="abbreviation">Qubits</span></a> 2) (<span class="id" title="variable">α</span> <span class="id" title="variable">β</span> <span class="id" title="variable">γ</span> <span class="id" title="variable">δ</span> : <a class="idref" href="Complex.html#C"><span class="id" title="definition">C</span></a>), <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> == <a class="idref" href="Multiqubit.html#α"><span class="id" title="variable">α</span></a> .* ∣0,0⟩ .+ <a class="idref" href="Multiqubit.html#β"><span class="id" title="variable">β</span></a> .* ∣0,1⟩ .+ <a class="idref" href="Multiqubit.html#γ"><span class="id" title="variable">γ</span></a> .* ∣1,0⟩ .+ <a class="idref" href="Multiqubit.html#δ"><span class="id" title="variable">δ</span></a> .* ∣1,1⟩ →<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#measure_total"><span class="id" title="inductive">measure_total</span></a> <a class="idref" href="Multiqubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> (<a class="idref" href="Complex.html#Cnorm2"><span class="id" title="definition">Cnorm2</span></a> <a class="idref" href="Multiqubit.html#γ"><span class="id" title="variable">γ</span></a>, ∣1,0⟩)<br/>
+| <a name="measure11"><span class="id" title="constructor">measure11</span></a> : <span style='font-size:120%;'>&forall;</span>(<span class="id" title="variable">ϕ</span> : <a class="idref" href="Multiqubit.html#Qubits"><span class="id" title="abbreviation">Qubits</span></a> 2) (<span class="id" title="variable">α</span> <span class="id" title="variable">β</span> <span class="id" title="variable">γ</span> <span class="id" title="variable">δ</span> : <a class="idref" href="Complex.html#C"><span class="id" title="definition">C</span></a>), <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> == <a class="idref" href="Multiqubit.html#α"><span class="id" title="variable">α</span></a> .* ∣0,0⟩ .+ <a class="idref" href="Multiqubit.html#β"><span class="id" title="variable">β</span></a> .* ∣0,1⟩ .+ <a class="idref" href="Multiqubit.html#γ"><span class="id" title="variable">γ</span></a> .* ∣1,0⟩ .+ <a class="idref" href="Multiqubit.html#δ"><span class="id" title="variable">δ</span></a> .* ∣1,1⟩ →<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#measure_total"><span class="id" title="inductive">measure_total</span></a> <a class="idref" href="Multiqubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> (<a class="idref" href="Complex.html#Cnorm2"><span class="id" title="definition">Cnorm2</span></a> <a class="idref" href="Multiqubit.html#δ"><span class="id" title="variable">δ</span></a>, ∣1,1⟩).<br/><hr class='doublespaceincode'/>
+<span class="id" title="keyword">Lemma</span> <a name="measure_plus_minus"><span class="id" title="lemma">measure_plus_minus</span></a> : <a class="idref" href="Multiqubit.html#measure_total"><span class="id" title="inductive">measure_total</span></a> (∣+⟩⊗∣-⟩) ((/4)%<span class="id" title="variable">R</span>,  ∣0,1⟩).<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="comment">(*&nbsp;WORKED&nbsp;IN&nbsp;CLASS&nbsp;*)</span><br/>
+&nbsp;&nbsp;<span class="id" title="tactic">replace</span> (/4)%<span class="id" title="variable">R</span> <span class="id" title="keyword">with</span> (<a class="idref" href="Complex.html#Cnorm2"><span class="id" title="definition">Cnorm2</span></a> (-/2)) <span class="id" title="tactic">by</span> (<span class="id" title="tactic">simpl</span>; <span class="id" title="variable">lra</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="Multiqubit.html#measure01"><span class="id" title="constructor">measure01</span></a> <span class="id" title="keyword">with</span> (<span class="id" title="variable">α</span> := /2) (<span class="id" title="variable">γ</span> := /2) (<span class="id" title="variable">δ</span> := -/2).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="Complex.html#Cnorm2"><span class="id" title="definition">Cnorm2</span></a>, <a class="idref" href="Qubit.html#q_plus"><span class="id" title="definition">q_plus</span></a>, <a class="idref" href="Qubit.html#q_minus"><span class="id" title="definition">q_minus</span></a>, <a class="idref" href="Matrix.html#kron"><span class="id" title="definition">kron</span></a>, <a class="idref" href="Multiqubit.html#qubit"><span class="id" title="definition">qubit</span></a>, <a class="idref" href="Qubit.html#qubit0"><span class="id" title="definition">qubit0</span></a>, <a class="idref" href="Qubit.html#qubit1"><span class="id" title="definition">qubit1</span></a>, <a class="idref" href="Matrix.html#Mscale"><span class="id" title="definition">Mscale</span></a>, <a class="idref" href="Matrix.html#Mplus"><span class="id" title="definition">Mplus</span></a>; <span class="id" title="tactic">simpl</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="variable">by_cell</span>; <span class="id" title="variable">C_field</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/><hr class='doublespaceincode'/>
+<span class="id" title="keyword">Lemma</span> <a name="measure_bell"><span class="id" title="lemma">measure_bell</span></a> : <a class="idref" href="Multiqubit.html#measure_total"><span class="id" title="inductive">measure_total</span></a> <a class="idref" href="Multiqubit.html#bell"><span class="id" title="definition">bell</span></a> ((/2)%<span class="id" title="variable">R</span>,  ∣1,1⟩).<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="comment">(*&nbsp;WORKED&nbsp;IN&nbsp;CLASS&nbsp;*)</span><br/>
+&nbsp;&nbsp;<span class="id" title="tactic">replace</span> (/2)%<span class="id" title="variable">R</span> <span class="id" title="keyword">with</span> (<a class="idref" href="Complex.html#Cnorm2"><span class="id" title="definition">Cnorm2</span></a> (/√2)) <span class="id" title="tactic">by</span> (<span class="id" title="tactic">simpl</span>; <span class="id" title="variable">R_field</span>; <span class="id" title="variable">nonzero</span>).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">apply</span> <a class="idref" href="Multiqubit.html#measure11"><span class="id" title="constructor">measure11</span></a> <span class="id" title="keyword">with</span> (<span class="id" title="variable">α</span> := /√2) (<span class="id" title="variable">γ</span> := 0) (<span class="id" title="variable">β</span> := 0).<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="Multiqubit.html#bell"><span class="id" title="definition">bell</span></a>; <span class="id" title="tactic">simpl</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="Multiqubit.html#qubit"><span class="id" title="definition">qubit</span></a>, <a class="idref" href="Qubit.html#qubit0"><span class="id" title="definition">qubit0</span></a>, <a class="idref" href="Qubit.html#qubit1"><span class="id" title="definition">qubit1</span></a>, <a class="idref" href="Matrix.html#Mplus"><span class="id" title="definition">Mplus</span></a>, <a class="idref" href="Matrix.html#Mscale"><span class="id" title="definition">Mscale</span></a>, <a class="idref" href="Matrix.html#kron"><span class="id" title="definition">kron</span></a>; <span class="id" title="tactic">simpl</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="variable">by_cell</span>; <span class="id" title="variable">C_field</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/>
+</div>
+
+<div class="doc">
+<a name="lab32"></a><h2 class="section">Partial measurement</h2>
+
+</div>
+<div class="code code-space">
+
+<br/>
+<span class="id" title="keyword">Inductive</span> <a name="measure_partial"><span class="id" title="inductive">measure_partial</span></a> : <a class="idref" href="http://coq.inria.fr/library/Coq.Init.Datatypes.html#nat"><span class="id" title="inductive">nat</span></a> → <a class="idref" href="Multiqubit.html#Qubits"><span class="id" title="abbreviation">Qubits</span></a> 2 → (<a class="idref" href="http://coq.inria.fr/library/Coq.Reals.Rdefinitions.html#R"><span class="id" title="axiom">R</span></a> * <a class="idref" href="Multiqubit.html#Qubits"><span class="id" title="abbreviation">Qubits</span></a> 2) → <span class="id" title="keyword">Prop</span> :=<br/>
+| <a name="measure_p_1_0"><span class="id" title="constructor">measure_p_1_0</span></a> : <span style='font-size:120%;'>&forall;</span>(<span class="id" title="variable">ϕ</span> <span class="id" title="variable">ϕ'</span> : <a class="idref" href="Multiqubit.html#Qubits"><span class="id" title="abbreviation">Qubits</span></a> 2) (<span class="id" title="variable">α</span> <span class="id" title="variable">β</span> <span class="id" title="variable">γ</span> <span class="id" title="variable">δ</span> : <a class="idref" href="Complex.html#C"><span class="id" title="definition">C</span></a>) (<span class="id" title="variable">p</span> : <a class="idref" href="http://coq.inria.fr/library/Coq.Reals.Rdefinitions.html#R"><span class="id" title="axiom">R</span></a>), <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> == <a class="idref" href="Multiqubit.html#α"><span class="id" title="variable">α</span></a> .* ∣0,0⟩ .+ <a class="idref" href="Multiqubit.html#β"><span class="id" title="variable">β</span></a> .* ∣0,1⟩ .+ <a class="idref" href="Multiqubit.html#γ"><span class="id" title="variable">γ</span></a> .* ∣1,0⟩ .+ <a class="idref" href="Multiqubit.html#δ"><span class="id" title="variable">δ</span></a> .* ∣1,1⟩ →<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#p"><span class="id" title="variable">p</span></a> = (<a class="idref" href="Complex.html#Cnorm2"><span class="id" title="definition">Cnorm2</span></a> <a class="idref" href="Multiqubit.html#α"><span class="id" title="variable">α</span></a> + <a class="idref" href="Complex.html#Cnorm2"><span class="id" title="definition">Cnorm2</span></a> <a class="idref" href="Multiqubit.html#β"><span class="id" title="variable">β</span></a>)%<span class="id" title="variable">R</span> →<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#ϕ'"><span class="id" title="variable">ϕ'</span></a> == /√<a class="idref" href="Multiqubit.html#p"><span class="id" title="variable">p</span></a> .* (<a class="idref" href="Multiqubit.html#α"><span class="id" title="variable">α</span></a> .* ∣0,0⟩ .+ <a class="idref" href="Multiqubit.html#β"><span class="id" title="variable">β</span></a> .* ∣0,1⟩) →<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#measure_partial"><span class="id" title="inductive">measure_partial</span></a> 1 <a class="idref" href="Multiqubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> (<a class="idref" href="Multiqubit.html#p"><span class="id" title="variable">p</span></a>, <a class="idref" href="Multiqubit.html#ϕ'"><span class="id" title="variable">ϕ'</span></a>)<br/>
+| <a name="measure_p_1_1"><span class="id" title="constructor">measure_p_1_1</span></a> : <span style='font-size:120%;'>&forall;</span>(<span class="id" title="variable">ϕ</span> <span class="id" title="variable">ϕ'</span> : <a class="idref" href="Multiqubit.html#Qubits"><span class="id" title="abbreviation">Qubits</span></a> 2) (<span class="id" title="variable">α</span> <span class="id" title="variable">β</span> <span class="id" title="variable">γ</span> <span class="id" title="variable">δ</span> : <a class="idref" href="Complex.html#C"><span class="id" title="definition">C</span></a>) (<span class="id" title="variable">p</span> : <a class="idref" href="http://coq.inria.fr/library/Coq.Reals.Rdefinitions.html#R"><span class="id" title="axiom">R</span></a>),<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> == <a class="idref" href="Multiqubit.html#α"><span class="id" title="variable">α</span></a> .* ∣0,0⟩ .+ <a class="idref" href="Multiqubit.html#β"><span class="id" title="variable">β</span></a> .* ∣0,1⟩ .+ <a class="idref" href="Multiqubit.html#γ"><span class="id" title="variable">γ</span></a> .* ∣1,0⟩ .+ <a class="idref" href="Multiqubit.html#δ"><span class="id" title="variable">δ</span></a> .* ∣1,1⟩ →<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#p"><span class="id" title="variable">p</span></a> = (<a class="idref" href="Complex.html#Cnorm2"><span class="id" title="definition">Cnorm2</span></a> <a class="idref" href="Multiqubit.html#γ"><span class="id" title="variable">γ</span></a> + <a class="idref" href="Complex.html#Cnorm2"><span class="id" title="definition">Cnorm2</span></a> <a class="idref" href="Multiqubit.html#δ"><span class="id" title="variable">δ</span></a>)%<span class="id" title="variable">R</span> →<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#ϕ'"><span class="id" title="variable">ϕ'</span></a> == /√<a class="idref" href="Multiqubit.html#p"><span class="id" title="variable">p</span></a> .* (<a class="idref" href="Multiqubit.html#γ"><span class="id" title="variable">γ</span></a> .* ∣1,0⟩ .+ <a class="idref" href="Multiqubit.html#δ"><span class="id" title="variable">δ</span></a> .* ∣1,1⟩) →<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#measure_partial"><span class="id" title="inductive">measure_partial</span></a> 1 <a class="idref" href="Multiqubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> (<a class="idref" href="Multiqubit.html#p"><span class="id" title="variable">p</span></a>, <a class="idref" href="Multiqubit.html#ϕ'"><span class="id" title="variable">ϕ'</span></a>)<br/>
+| <a name="measure_p_2_0"><span class="id" title="constructor">measure_p_2_0</span></a> : <span style='font-size:120%;'>&forall;</span>(<span class="id" title="variable">ϕ</span> <span class="id" title="variable">ϕ'</span> : <a class="idref" href="Multiqubit.html#Qubits"><span class="id" title="abbreviation">Qubits</span></a> 2) (<span class="id" title="variable">α</span> <span class="id" title="variable">β</span> <span class="id" title="variable">γ</span> <span class="id" title="variable">δ</span> : <a class="idref" href="Complex.html#C"><span class="id" title="definition">C</span></a>) (<span class="id" title="variable">p</span> : <a class="idref" href="http://coq.inria.fr/library/Coq.Reals.Rdefinitions.html#R"><span class="id" title="axiom">R</span></a>), <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> == <a class="idref" href="Multiqubit.html#α"><span class="id" title="variable">α</span></a> .* ∣0,0⟩ .+ <a class="idref" href="Multiqubit.html#β"><span class="id" title="variable">β</span></a> .* ∣0,1⟩ .+ <a class="idref" href="Multiqubit.html#γ"><span class="id" title="variable">γ</span></a> .* ∣1,0⟩ .+ <a class="idref" href="Multiqubit.html#δ"><span class="id" title="variable">δ</span></a> .* ∣1,1⟩ →<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#p"><span class="id" title="variable">p</span></a> = (<a class="idref" href="Complex.html#Cnorm2"><span class="id" title="definition">Cnorm2</span></a> <a class="idref" href="Multiqubit.html#α"><span class="id" title="variable">α</span></a> + <a class="idref" href="Complex.html#Cnorm2"><span class="id" title="definition">Cnorm2</span></a> <a class="idref" href="Multiqubit.html#γ"><span class="id" title="variable">γ</span></a>)%<span class="id" title="variable">R</span> →<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#ϕ'"><span class="id" title="variable">ϕ'</span></a> == /√<a class="idref" href="Multiqubit.html#p"><span class="id" title="variable">p</span></a> .* (<a class="idref" href="Multiqubit.html#α"><span class="id" title="variable">α</span></a> .* ∣0,0⟩ .+ <a class="idref" href="Multiqubit.html#γ"><span class="id" title="variable">γ</span></a> .* ∣1,0⟩) →<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#measure_partial"><span class="id" title="inductive">measure_partial</span></a> 1 <a class="idref" href="Multiqubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> (<a class="idref" href="Multiqubit.html#p"><span class="id" title="variable">p</span></a>, <a class="idref" href="Multiqubit.html#ϕ'"><span class="id" title="variable">ϕ'</span></a>)<br/>
+| <a name="measure_p_2_1"><span class="id" title="constructor">measure_p_2_1</span></a> : <span style='font-size:120%;'>&forall;</span>(<span class="id" title="variable">ϕ</span> <span class="id" title="variable">ϕ'</span> : <a class="idref" href="Multiqubit.html#Qubits"><span class="id" title="abbreviation">Qubits</span></a> 2) (<span class="id" title="variable">α</span> <span class="id" title="variable">β</span> <span class="id" title="variable">γ</span> <span class="id" title="variable">δ</span> : <a class="idref" href="Complex.html#C"><span class="id" title="definition">C</span></a>) (<span class="id" title="variable">p</span> : <a class="idref" href="http://coq.inria.fr/library/Coq.Reals.Rdefinitions.html#R"><span class="id" title="axiom">R</span></a>),<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> == <a class="idref" href="Multiqubit.html#α"><span class="id" title="variable">α</span></a> .* ∣0,0⟩ .+ <a class="idref" href="Multiqubit.html#β"><span class="id" title="variable">β</span></a> .* ∣0,1⟩ .+ <a class="idref" href="Multiqubit.html#γ"><span class="id" title="variable">γ</span></a> .* ∣1,0⟩ .+ <a class="idref" href="Multiqubit.html#δ"><span class="id" title="variable">δ</span></a> .* ∣1,1⟩ →<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#p"><span class="id" title="variable">p</span></a> = (<a class="idref" href="Complex.html#Cnorm2"><span class="id" title="definition">Cnorm2</span></a> <a class="idref" href="Multiqubit.html#β"><span class="id" title="variable">β</span></a> + <a class="idref" href="Complex.html#Cnorm2"><span class="id" title="definition">Cnorm2</span></a> <a class="idref" href="Multiqubit.html#δ"><span class="id" title="variable">δ</span></a>)%<span class="id" title="variable">R</span> →<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#ϕ'"><span class="id" title="variable">ϕ'</span></a> == /√<a class="idref" href="Multiqubit.html#p"><span class="id" title="variable">p</span></a> .* (<a class="idref" href="Multiqubit.html#β"><span class="id" title="variable">β</span></a> .* ∣0,1⟩ .+ <a class="idref" href="Multiqubit.html#δ"><span class="id" title="variable">δ</span></a> .* ∣1,1⟩) →<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="Multiqubit.html#measure_partial"><span class="id" title="inductive">measure_partial</span></a> 1 <a class="idref" href="Multiqubit.html#ϕ"><span class="id" title="variable">ϕ</span></a> (<a class="idref" href="Multiqubit.html#p"><span class="id" title="variable">p</span></a>, <a class="idref" href="Multiqubit.html#ϕ'"><span class="id" title="variable">ϕ'</span></a>).<br/><hr class='doublespaceincode'/>
+<span class="id" title="keyword">Lemma</span> <a name="partial_measure_plus_minus"><span class="id" title="lemma">partial_measure_plus_minus</span></a> : <a class="idref" href="Multiqubit.html#measure_partial"><span class="id" title="inductive">measure_partial</span></a> 1 (∣+⟩⊗∣-⟩) (<a class="idref" href="http://coq.inria.fr/library/Coq.Reals.Rdefinitions.html#Rinv"><span class="id" title="axiom">Rinv</span></a> 2,  ∣0⟩⊗∣-⟩).<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eapply</span> <a class="idref" href="Multiqubit.html#measure_p_1_0"><span class="id" title="constructor">measure_p_1_0</span></a> <span class="id" title="keyword">with</span> (<span class="id" title="variable">α</span> := /2) (<span class="id" title="variable">β</span> := -/2) (<span class="id" title="variable">γ</span> := /2) (<span class="id" title="variable">δ</span> := -/2).<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">unfold</span> <a class="idref" href="Complex.html#Cnorm2"><span class="id" title="definition">Cnorm2</span></a>, <a class="idref" href="Qubit.html#q_plus"><span class="id" title="definition">q_plus</span></a>, <a class="idref" href="Qubit.html#q_minus"><span class="id" title="definition">q_minus</span></a>, <a class="idref" href="Matrix.html#Mplus"><span class="id" title="definition">Mplus</span></a>, <a class="idref" href="Matrix.html#Mscale"><span class="id" title="definition">Mscale</span></a>, <a class="idref" href="Matrix.html#kron"><span class="id" title="definition">kron</span></a>; <span class="id" title="tactic">simpl</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="Multiqubit.html#qubit"><span class="id" title="definition">qubit</span></a>, <a class="idref" href="Qubit.html#qubit0"><span class="id" title="definition">qubit0</span></a>, <a class="idref" href="Qubit.html#qubit1"><span class="id" title="definition">qubit1</span></a>; <span class="id" title="tactic">simpl</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="variable">by_cell</span>; <span class="id" title="variable">C_field</span>.<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">simpl</span>; <span class="id" title="variable">R_field</span>.<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">unfold</span> <a class="idref" href="Complex.html#Cnorm2"><span class="id" title="definition">Cnorm2</span></a>, <a class="idref" href="Qubit.html#q_plus"><span class="id" title="definition">q_plus</span></a>, <a class="idref" href="Qubit.html#q_minus"><span class="id" title="definition">q_minus</span></a>, <a class="idref" href="Matrix.html#Mplus"><span class="id" title="definition">Mplus</span></a>, <a class="idref" href="Matrix.html#Mscale"><span class="id" title="definition">Mscale</span></a>, <a class="idref" href="Matrix.html#kron"><span class="id" title="definition">kron</span></a>; <span class="id" title="tactic">simpl</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="Multiqubit.html#qubit"><span class="id" title="definition">qubit</span></a>, <a class="idref" href="Qubit.html#qubit0"><span class="id" title="definition">qubit0</span></a>, <a class="idref" href="Qubit.html#qubit1"><span class="id" title="definition">qubit1</span></a>; <span class="id" title="tactic">simpl</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="variable">by_cell</span>; <span class="id" title="variable">C_field</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/><hr class='doublespaceincode'/>
+<span class="id" title="keyword">Lemma</span> <a name="partial_measure_bell"><span class="id" title="lemma">partial_measure_bell</span></a> : <a class="idref" href="Multiqubit.html#measure_partial"><span class="id" title="inductive">measure_partial</span></a> 1 <a class="idref" href="Multiqubit.html#bell"><span class="id" title="definition">bell</span></a> (<a class="idref" href="http://coq.inria.fr/library/Coq.Reals.Rdefinitions.html#Rinv"><span class="id" title="axiom">Rinv</span></a> 2,  ∣1,1⟩).<br/>
+<span class="id" title="keyword">Proof</span>.<br/>
+&nbsp;&nbsp;<span class="comment">(*&nbsp;WORKED&nbsp;IN&nbsp;CLASS&nbsp;*)</span><br/>
+&nbsp;&nbsp;<span class="id" title="tactic">eapply</span> <a class="idref" href="Multiqubit.html#measure_p_1_1"><span class="id" title="constructor">measure_p_1_1</span></a>  <span class="id" title="keyword">with</span> (<span class="id" title="variable">α</span> := /√2) (<span class="id" title="variable">β</span> := 0) (<span class="id" title="variable">γ</span> := 0) (<span class="id" title="variable">δ</span> := /√2).<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">unfold</span> <a class="idref" href="Complex.html#Cnorm2"><span class="id" title="definition">Cnorm2</span></a>, <a class="idref" href="Multiqubit.html#bell"><span class="id" title="definition">bell</span></a>; <span class="id" title="tactic">simpl</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="tactic">unfold</span> <a class="idref" href="Multiqubit.html#qubit"><span class="id" title="definition">qubit</span></a>, <a class="idref" href="Qubit.html#qubit0"><span class="id" title="definition">qubit0</span></a>, <a class="idref" href="Qubit.html#qubit1"><span class="id" title="definition">qubit1</span></a>, <a class="idref" href="Matrix.html#Mplus"><span class="id" title="definition">Mplus</span></a>, <a class="idref" href="Matrix.html#Mscale"><span class="id" title="definition">Mscale</span></a>, <a class="idref" href="Matrix.html#kron"><span class="id" title="definition">kron</span></a>; <span class="id" title="tactic">simpl</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="variable">by_cell</span>; <span class="id" title="variable">C_field</span>.<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">simpl</span>; <span class="id" title="variable">R_field</span>.<br/>
+&nbsp;&nbsp;- <span class="id" title="tactic">unfold</span> <a class="idref" href="Multiqubit.html#qubit"><span class="id" title="definition">qubit</span></a>, <a class="idref" href="Qubit.html#qubit0"><span class="id" title="definition">qubit0</span></a>, <a class="idref" href="Qubit.html#qubit1"><span class="id" title="definition">qubit1</span></a>, <a class="idref" href="Matrix.html#Mplus"><span class="id" title="definition">Mplus</span></a>, <a class="idref" href="Matrix.html#Mscale"><span class="id" title="definition">Mscale</span></a>, <a class="idref" href="Matrix.html#kron"><span class="id" title="definition">kron</span></a>; <span class="id" title="tactic">simpl</span>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="variable">by_cell</span>; <span class="id" title="variable">C_field</span>.<br/>
+<span class="id" title="keyword">Qed</span>.<br/><hr class='doublespaceincode'/>
+<span class="comment">(*&nbsp;*)</span><br/>
+<span class="comment">(*&nbsp;Thu&nbsp;Aug&nbsp;1&nbsp;13:45:52&nbsp;EDT&nbsp;2019&nbsp;*)</span><br/>
+</div>
+</div>
+
+
+
+</div>
+
+</body>
+</html>

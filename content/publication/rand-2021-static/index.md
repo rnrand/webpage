@@ -32,7 +32,12 @@ image:
 projects: []
 publishDate: '2021-07-26T21:34:21.898345Z'
 publication_types:
-- '0'
+- '3'
 abstract: ''
-publication: ''
+publication: 'arXiv preprint'
+url_pdf: files/gottesman_analysis.pdf
+links:
+- name: arXiv
+  url: https://arxiv.org/abs/2101.08939
+
 ---

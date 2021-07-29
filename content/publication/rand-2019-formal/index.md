@@ -33,7 +33,7 @@ publishDate: '2021-07-26T21:34:20.514766Z'
 publication_types:
 - '1'
 abstract: ''
-publication: '*3rd Summit on Advances in Programming Languages (SNAPL 2019)*'
+publication: '*Summit on Advances in Programming Languages (SNAPL 2019)*'
 url_pdf: snapl_2019.pdf
 url_slides: snapl_2019_slides.pdf
 

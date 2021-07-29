@@ -34,9 +34,10 @@ publishDate: '2021-07-26T21:34:19.476596Z'
 publication_types:
 - '1'
 abstract: ''
-publication: '*Proceedings of the 15th International Conference on Quantum Physics
-  and Logic, QPL*'
+publication: '*International Conference on Quantum Physics and Logic (QPL 2018)*'
 url_pdf: files/qpl_2018.pdf
 url_slides: files/qpl_2018_slides.pptx
 url_video: https://youtu.be/sNrfZ0hsJO4
+url_code: https://github.com/inQWIRE/QWIRE
+doi: 10.4204/EPTCS.287.17
 ---

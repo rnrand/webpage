@@ -8,7 +8,7 @@ authors:
 - Robert Rand
 tags: []
 categories: []
-date: '2018-01-01'
+date: '2018-08-01'
 lastmod: 2021-07-26T16:34:20-05:00
 featured: false
 draft: false
@@ -37,6 +37,7 @@ While physicists and engineers have worked on building scalable quantum computer
 We argue that quantum programs demand machine-checkable proofs of correctness. We justify this on the basis of the complexity of programs manipulating quantum states, the expense of running quantum programs, and the inapplicability of traditional debugging techniques to programs whose states cannot be examined. We further argue that the existing mathematical models of quantum computation make this an easier task than one could reasonably expect. In light of these observations we introduce QWIRE, a tool for writing verifiable, large scale quantum programs.
 
 QWIRE is not merely a language for writing and verifying quantum circuits: it is a verified circuit description language. This means that the semantics of QWIRE circuits are verified in the Coq proof assistant. We also implement verified abstractions, like ancilla management and reversible circuit compilation. Finally, we turn QWIRE and Coq’s abilities outwards, towards verifying popular quantum algorithms like quantum teleportation. We argue that this tool provides a solid foundation for research into quantum programming languages and formal verification going forward.'
-publication: ''
-url_pdf: thesis.pdf
+publication: 'University of Pennsylvania Dissertations'
+url_pdf: files/thesis.pdf
+url_source: https://repository.upenn.edu/edissertations/3175/
 ---

@@ -10,7 +10,7 @@ authors:
 - Steve Zdancewic
 tags: []
 categories: []
-date: '2017-01-01'
+date: '2017-06-01'
 lastmod: 2021-07-26T16:34:19-05:00
 featured: false
 draft: false
@@ -33,8 +33,9 @@ publishDate: '2021-07-26T21:34:19.301929Z'
 publication_types:
 - '1'
 abstract: ''
-publication: '*Proceedings of the 14th International Conference on Quantum Physics
-  and Logic, QPL*'
+publication: '*International Conference on Quantum Physics and Logic (QPL 2017)*'
 url_pdf: files/qpl_2017.pdf
 url_slides: files/qpl_2017_slides.pdf
+url_code: https://github.com/inQWIRE/QWIRE
+doi: 10.4204/EPTCS.266.8
 ---

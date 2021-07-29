@@ -1,0 +1,83 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Coq Tutorial</title>
+<link rel="stylesheet" type="text/css" href="../main.css">
+<link type="text/css" rel="stylesheet" href="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/style.css"><script type="text/javascript" charset="utf-8" src="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/js/page_context.js"></script><style type="text/css"></style></head>
+
+<body screen_capture_injected="true">
+
+<div id="topdecbar"></div>
+
+<div id="container">
+
+<div id="metainfo">
+<img src="coq-atom.png" width="220">
+</div>
+
+
+<div id="content">
+
+
+<h1>POPL 2020: <br> 
+Verified Quantum Computing</h1>
+
+<p>Robert Rand<br> 
+with Kesha Hietala and Kartik Singhal</p>
+ 
+<h2> Materials </h2> 
+
+<ul>  
+<li><a href="https://coq.inria.fr/download"> Coq 8.10</a></li>
+<li><a href="http://proofgeneral.inf.ed.ac.uk/">Proof General </a>(for emacs)</li>
+<li><a href="https://github.com/cpitclaudel/company-coq/">Company Coq</a> (useful for unicode)</li>
+<li> <a href="vqc.tgz">Tutorial Materials</a></li>
+<li><a href="reference.html">Tactics Cheat Sheet </a></li>
+</ul>
+ 
+<h2> Introduction </h2>
+
+<p> This tutorial will introduce quantum computing to a programming languages audience through use of the Coq proof assistant. Beyond introducing attendees to the basics of quantum computing, it will introduce a simple quantum programming language, called SQIR, and demonstrate how to verify the correctness of quantum programs.</p>
+
+<p>Popular presentations of quantum mechanics often portray quantum mechanics as “weird” or “spooky” and fundamentally difficult for laypeople, or even mathematicians and physicists, to wrap their heads around. We will take the opposite approach, explaining quantum computing in terms of a simple mathematical theory that we embed in the Coq proof assistant, relying on nothing but Coq’s real numbers and a lightweight formalization of complex numbers and matrix algebra. This will allow attendees to play with quantum systems,
+familiarizing themselves with their advantages and limitations.</p>
+
+<p>The first half of the tutorial (Qubit.v and Multiqubit.v) will
+focus on the basics of quantum computing. In particular, it will address the
+following questions:
+<ul>
+	<li>What are qubits and how do we represent them?</li>
+    <li>What are superposition and entanglement?</li>
+	<li>What operations are valid in a quantum context?</li>
+    <li>How do we measure qubits and mathematically represent the outcomes?</li>
+</ul></p>
+
+<p>The second half of the tutorial (SQIMP.v) will turn towards subjects of
+particular interest to POPL attendees: How do we program quantum computers
+and how do we prove that these programs behave as desired?
+To that end, we will begin by introducing the small quantum language SQIR,
+which features in ongoing work as a target for the <a href="https://arxiv.org/abs/1912.02250">VOQC compiler</a>. 
+SQIR is a deliberately low-level language, designed for optimization and verification.
+It allows users to apply basic quantum operations (unitary gates and branching
+measurement) to a fixed set of qubit registers, the size of which is specified in
+the type of the program.</p>
+
+We will demonstrate how to program in sqir and how to prove the correctness of SQIR programs, focusing on textbook quantum algorithms like Deutsch’s algorithm and quantum teleportation. This will help us convey the power of quantum computation while giving users a taste of formal verification in the quantum setting.</p>
+	
+<p>This tutorial will assume basic knowledge of the Coq proof assistant. No background in quantum computing will be assumed.</p>
+
+<h2> Further Reading </h2>
+
+<ul>
+<li><a href="https://cs.uwaterloo.ca/~watrous/LectureNotes/CPSC519.Winter2006/all.pdf">John Watrous' lecture notes on quantum computing</a></li>
+<li><a href="https://quantum.country/qcvc">Quantum computing for the very curious</a></li>
+<li><a href="https://github.com/Microsoft/QuantumKatas">Microsoft's Quantum Katas</a></li>
+<li> <a href="https://www.scottaaronson.com/blog/">Scott Aaronson's blog'</a></li> 
+<li><a href="https://popl20.sigplan.org/home/planqc-2020#program">Programming Languages for Quantum Computing (PLanQC 2020)</a>
+<li> <a href="https://www.cs.umd.edu/~rrand/vqc/">Verified Quantum Computing</a> (online textbook, updated)</li>
+</ul>
+
+</div>
+
+</div>
+
+</html>

@@ -1,0 +1,15 @@
+DIGEST 80fff9228349a4c542f8deab238d04ff
+FVQC.MatrixTest
+R70:75 Coq.Strings.String <> <> lib
+R102:107 VQC.Matrix <> <> lib
+ax 121:127 <> MISSING
+mod 144:148 <> Check
+R214:220 VQC.MatrixTest <> MISSING defax
+R214:220 VQC.MatrixTest <> MISSING defax
+R413:416 Coq.Init.Datatypes <> Some constr
+R413:416 Coq.Init.Datatypes <> Some constr
+R596:599 Coq.Init.Datatypes <> None constr
+R596:599 Coq.Init.Datatypes <> None constr
+R681:685 VQC.MatrixTest Check <> mod
+R713:718 VQC.Matrix <> <> lib
+R741:744 Coq.Init.Logic <> True ind
