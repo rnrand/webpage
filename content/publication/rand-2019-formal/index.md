@@ -34,7 +34,7 @@ publication_types:
 - '1'
 abstract: ''
 publication: '*Summit on Advances in Programming Languages (SNAPL 2019)*'
-url_pdf: snapl_2019.pdf
-url_slides: snapl_2019_slides.pdf
+url_pdf: files/snapl_2019.pdf
+url_slides: files/snapl_2019_slides.pdf
 
 ---

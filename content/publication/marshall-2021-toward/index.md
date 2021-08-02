@@ -26,7 +26,7 @@ publication_types:
 - '8'
 abstract: ''
 publication: '*International Conference on Quantum Physics and Logic (QPL 2021)* Poster'
-url_pdf: qpl_2021b.pdf
+url_pdf: files/qpl_2021b.pdf
 url_slides: 
 url_video: 
 links:

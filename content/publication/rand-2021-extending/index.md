@@ -36,8 +36,8 @@ publication_types:
 abstract: ''
 publication: '*International Workshop on Programming Languages for Quantum
   Computing (PLanQC 2021)*'
-url_pdf: planqc_2021a.pdf
-url_slides: planqc_2021a_slides.pdf
+url_pdf: files/planqc_2021a.pdf
+url_slides: files/planqc_2021a_slides.pdf
 url_video: https://youtu.be/pyBtWRkVQd4
 ---
 

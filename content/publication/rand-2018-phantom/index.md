@@ -35,6 +35,10 @@ publication_types:
 abstract: ''
 publication: '*International Workshop on Coq for Programming Languages (CoqPL 2018)*'
 url_pdf: files/coqpl_2018.pdf
-url_slides: files/coqpl_2018_talk.pptx
+url_slides: files/coqpl_2018_slides.pptx
 url_video: https://youtu.be/4dCAh9GN4Lo
 ---
+<p>
+{{< youtube 4dCAh9GN4Lo >}}
+</p>
+
