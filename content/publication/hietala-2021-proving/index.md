@@ -37,7 +37,12 @@ publication_types:
 abstract: ''
 publication: '*International Conference on Interactive Theorem Proving (ITP 2021)*'
 url_pdf: files/itp_2021.pdf
+url_video: https://youtu.be/_0V46pBkRYo?t=32
 doi: 10.4230/LIPIcs.ITP.2021.21
 
-
 ---
+
+<p>
+<iframe width="672" height="378" src="https://www.youtube-nocookie.com/embed/_0V46pBkRYo?start=32" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
